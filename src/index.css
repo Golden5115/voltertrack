@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+
+    --brand-dark-blue: #012462;
+    --brand-main-blue: #005CCC;
+    --brand-bright-blue: #008CFF;
+  }
+  
+  html {
+    font-family: var(--font-sans);
+    color-scheme: light;
+    background-color: #F8FAFC;
+    color: #0F172A;
+  }
+
+  /* Custom Light-Theme Scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #005CCC;
+  }
+}
+
+/* 3D Perspective Context */
+.perspective-1200 {
+  perspective: 1200px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+/* Background Grids & Light Ambient Glows */
+.bg-grid-cyber {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 92, 204, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 92, 204, 0.045) 1px, transparent 1px);
+}
+
+.bg-radial-blue-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 140, 255, 0.12) 0%, rgba(0, 92, 204, 0.04) 50%, transparent 75%);
+}
+
+.bg-radial-subtle {
+  background: radial-gradient(circle at 80% 20%, rgba(0, 92, 204, 0.06) 0%, transparent 60%);
+}
+
+/* Light Glassmorphism Cards */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(1, 36, 98, 0.06);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: #008CFF;
+  box-shadow: 0 20px 40px -15px rgba(0, 92, 204, 0.14);
+}
+
+/* Brand Text Gradients (#012462 → #005CCC → #008CFF) */
+.gradient-text-brand {
+  background: linear-gradient(135deg, #012462 0%, #005CCC 50%, #008CFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #005CCC 0%, #008CFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-bg-brand {
+  background: linear-gradient(135deg, #012462 0%, #005CCC 50%, #008CFF 100%);
+}
+
+.gradient-bg-brand-h {
+  background: linear-gradient(90deg, #012462 0%, #005CCC 50%, #008CFF 100%);
+}
+
+/* Shimmer on light badges */
+.shimmer-badge-light {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 92, 204, 0.08) 0%,
+    rgba(0, 140, 255, 0.18) 50%,
+    rgba(0, 92, 204, 0.08) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmerLight 4s linear infinite;
+}
+
+@keyframes shimmerLight {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Specular Light Sweep across monitor screen (motionsite.ai style) */
+@keyframes specularSweep {
+  0% { transform: translateX(-150%) rotate(25deg); opacity: 0; }
+  20% { opacity: 0.6; }
+  40% { transform: translateX(250%) rotate(25deg); opacity: 0; }
+  100% { transform: translateX(250%) rotate(25deg); opacity: 0; }
+}
+
+.animate-specular-sweep {
+  animation: specularSweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Sonar Ripple Pulse */
+@keyframes sonarRipple {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.animate-sonar-ring {
+  animation: sonarRipple 2.4s cubic-bezier(0.1, 0.2, 0.7, 1) infinite;
+}
+
+.animate-sonar-ring-delayed {
+  animation: sonarRipple 2.4s cubic-bezier(0.1, 0.2, 0.7, 1) infinite;
+  animation-delay: 1.2s;
+}
+
+/* Radar Sweep Keyframe */
+@keyframes radarSpinLight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-radar-sweep-light {
+  animation: radarSpinLight 5s linear infinite;
+  transform-origin: center center;
+}
+
+/* Floating Elements with smooth Physics */
+@keyframes floatSmoothA {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.8deg); }
+}
+
+@keyframes floatSmoothB {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes floatSmoothC {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+.animate-float-a {
+  animation: floatSmoothA 5s ease-in-out infinite;
+}
+.animate-float-b {
+  animation: floatSmoothB 6s ease-in-out infinite;
+}
+.animate-float-c {
+  animation: floatSmoothC 4.5s ease-in-out infinite;
+}
+
+/* Pulse Dot */
+@keyframes pulseGlowBlue {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.35); }
+}
+
+.animate-pulse-blue {
+  animation: pulseGlowBlue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
