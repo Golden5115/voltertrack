@@ -105,11 +105,13 @@ export const Navbar: React.FC = () => {
                 return (
                   <div
                     key={item.name}
-                    className="relative"
+                    className="relative group"
                     onMouseEnter={() => setActiveDropdown(item.name)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button
+                    <Link
+                      to={item.href}
+                      onClick={() => setActiveDropdown(null)}
                       className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold rounded-xl transition-colors ${
                         location.pathname.startsWith(item.href) || isOpen
                           ? 'text-[#005CCC] bg-blue-50'
@@ -118,7 +120,7 @@ export const Navbar: React.FC = () => {
                     >
                       {item.name}
                       <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#005CCC]' : 'text-slate-400'}`} />
-                    </button>
+                    </Link>
 
                     {/* Mega Dropdown Menu */}
                     {isOpen && (
@@ -135,6 +137,7 @@ export const Navbar: React.FC = () => {
                                     <Link
                                       key={sub.name}
                                       to={sub.href}
+                                      onClick={() => setActiveDropdown(null)}
                                       className="flex flex-col px-3 py-2 rounded-xl text-xs hover:bg-blue-50 hover:text-[#005CCC] transition-colors group/sub"
                                     >
                                       <div className="flex items-center justify-between font-bold text-slate-800 group-hover/sub:text-[#005CCC]">
@@ -160,7 +163,11 @@ export const Navbar: React.FC = () => {
                           {/* Dropdown footer quick link */}
                           <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between px-2 text-[11px] text-slate-500">
                             <span>Explore all {item.name.toLowerCase()} capabilities</span>
-                            <Link to={item.href} className="text-[#005CCC] hover:text-[#008CFF] font-bold flex items-center gap-1">
+                            <Link 
+                              to={item.href} 
+                              onClick={() => setActiveDropdown(null)}
+                              className="text-[#005CCC] hover:text-[#008CFF] font-bold flex items-center gap-1"
+                            >
                               View {item.name} Hub <ArrowRight className="w-3 h-3" />
                             </Link>
                           </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
+import { ScrollToHash } from './components/common/ScrollToHash';
 
 // Pages
 import { HomePage } from './pages/HomePage';
@@ -40,7 +41,8 @@ import { LegalPage } from './pages/LegalPage';
 export const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-[#050811] text-slate-100 font-sans selection:bg-cyan-500 selection:text-white">
+      <ScrollToHash />
+      <div className="flex flex-col min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-[#005CCC] selection:text-white">
         <Navbar />
         
         <main className="flex-grow">
