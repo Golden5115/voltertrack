@@ -236,6 +236,7 @@ export const Navbar: React.FC = () => {
                 <div key={item.name} className="border-b border-slate-100 py-2">
                   <Link
                     to={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center justify-between text-base font-bold text-[#012462] hover:text-[#005CCC] py-1"
                   >
                     <span>{item.name}</span>
@@ -247,6 +248,7 @@ export const Navbar: React.FC = () => {
                         <Link
                           key={sub.name}
                           to={sub.href}
+                          onClick={() => setMobileMenuOpen(false)}
                           className="block py-1.5 text-xs text-slate-600 hover:text-[#005CCC] font-medium transition-colors"
                         >
                           {sub.name}
@@ -269,12 +271,14 @@ export const Navbar: React.FC = () => {
               </a>
               <Link
                 to="/demo"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block text-center py-2.5 text-sm font-bold text-[#005CCC] bg-blue-50 rounded-xl border border-blue-200"
               >
                 Request a Live Demo
               </Link>
               <Link
                 to="/quote"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block text-center py-2.5 text-sm font-bold text-white gradient-bg-brand rounded-xl shadow-lg shadow-blue-600/25"
               >
                 Get a Custom Fleet Quote

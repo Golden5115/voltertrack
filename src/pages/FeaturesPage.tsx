@@ -7,33 +7,33 @@ import {
   ArrowRight, 
   Sparkles,
   ChevronRight,
-  ShieldCheck,
-  Fuel,
-  Lock,
-  Clock,
-  MapPin,
-  Car,
-  Users,
-  BarChart3,
-  Wrench,
-  Cpu,
-  Bell,
-  CheckCircle2,
-  Navigation,
-  Activity,
-  Zap,
-  Check
+  ShieldCheck, 
+  Lock, 
+  Clock, 
+  MapPin, 
+  Car, 
+  Users, 
+  BarChart3, 
+  Wrench, 
+  Cpu, 
+  Bell, 
+  CheckCircle2, 
+  Navigation, 
+  Activity, 
+  Zap, 
+  Check,
+  Fuel
 } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
-import { ALL_FEATURES, FeatureItem } from '../data/featuresData';
+import { ALL_FEATURES } from '../data/featuresData';
 
 export const FeaturesPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const filteredFeatures = ALL_FEATURES.filter(f => 
-    f.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-    f.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    f.problemSolved.toLowerCase().includes(searchQuery.toLowerCase())
+    (f.title || '').toLowerCase().includes(searchQuery.toLowerCase()) || 
+    (f.shortDescription || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (f.tagline || '').toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const getFeatureIcon = (slug: string) => {
@@ -57,8 +57,8 @@ export const FeaturesPage: React.FC = () => {
   return (
     <div className="space-y-20 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
-        title="Complete Platform Features | VolterTrack Fleet Intelligence"
-        description="Explore all 12 VolterTrack platform capabilities on one unified page: Real-Time GPS, Trip History, Geofencing, Fuel Monitoring, Remote Immobilization, Maintenance, and APIs."
+        title="Platform Features Catalog | VolterTrack"
+        description="Explore all 12 VolterTrack platform capabilities: Live GPS, Route Replay, Geofencing, Speed Governance, Remote Immobilizer, Maintenance, and APIs."
       />
 
       {/* 1. Header & Anchor Quick-Jump Bar */}
@@ -68,10 +68,10 @@ export const FeaturesPage: React.FC = () => {
           <span>Unified Feature Catalog</span>
         </div>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#012462] font-['Space_Grotesk'] tracking-tight">
-          Every tool you need to track, manage, and protect your fleet.
+          Every capability you need to track, manage, and protect your fleet.
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          From sub-second live GPS and sensor-grade fuel monitoring to remote engine cut-off and automated driver scoring — all accessible on web and mobile.
+          From sub-second live GPS and automated boundary geofences to remote engine immobilization and driver safety scoring.
         </p>
 
         {/* Search Bar */}
@@ -79,7 +79,7 @@ export const FeaturesPage: React.FC = () => {
           <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Quick search capabilities (e.g. geofence, fuel, immobilizer)..."
+            placeholder="Quick search capabilities (e.g. geofence, immobilizer, playback)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none shadow-sm"
@@ -107,7 +107,6 @@ export const FeaturesPage: React.FC = () => {
       <section className="space-y-16">
         {filteredFeatures.map((feature, idx) => {
           const Icon = getFeatureIcon(feature.slug);
-          // Anchor ID handling for fuel and security
           const anchorId = feature.slug === 'fuel-management' ? 'fuel-monitoring' : feature.slug;
           const isEven = idx % 2 === 0;
 
@@ -128,7 +127,7 @@ export const FeaturesPage: React.FC = () => {
                   {/* Category & Badge */}
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] font-extrabold font-mono text-[#005CCC] uppercase tracking-wider px-2.5 py-1 rounded-lg bg-blue-50 border border-blue-200">
-                      {feature.category.toUpperCase()}
+                      {(feature.category || 'Core').toUpperCase()}
                     </span>
                     {feature.badge && (
                       <span className="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -143,36 +142,46 @@ export const FeaturesPage: React.FC = () => {
                       {feature.title}
                     </h2>
                     <p className="text-[#005CCC] text-xs sm:text-sm font-bold mt-1.5">
-                      {feature.heroHeadline}
+                      {feature.tagline || feature.shortDescription}
                     </p>
                   </div>
 
-                  {/* Description & Problem Solved */}
+                  {/* Description */}
                   <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                    {feature.fullDescription}
+                    {feature.fullDescription || feature.shortDescription}
                   </p>
 
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1 text-xs">
-                    <span className="font-bold text-[#012462]">Direct Operational Impact:</span>
-                    <p className="text-slate-600 text-[11px] leading-relaxed">
-                      {feature.problemSolved}
-                    </p>
-                  </div>
+                  {/* Operational Benefits */}
+                  {feature.benefits && feature.benefits.length > 0 && (
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 text-xs">
+                      <span className="font-bold text-[#012462] uppercase tracking-wider text-[11px]">Direct Operational Benefits:</span>
+                      <div className="space-y-1.5 text-slate-700">
+                        {feature.benefits.map((b, i) => (
+                          <div key={i} className="flex items-start gap-2 text-[11px]">
+                            <span className="text-[#005CCC] font-bold">✓</span>
+                            <span>{b}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   {/* Key Capabilities Checklist */}
-                  <div className="space-y-2 pt-1">
-                    <p className="text-xs font-bold text-[#012462] uppercase tracking-wider">
-                      Included Capabilities:
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {feature.keyCapabilities.map((cap, i) => (
-                        <div key={i} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
-                          <Check className="w-4 h-4 text-emerald-600 shrink-0 stroke-[3] mt-0.5" />
-                          <span>{cap}</span>
-                        </div>
-                      ))}
+                  {feature.capabilities && feature.capabilities.length > 0 && (
+                    <div className="space-y-2 pt-1">
+                      <p className="text-xs font-bold text-[#012462] uppercase tracking-wider">
+                        Included Capabilities:
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {feature.capabilities.map((cap, i) => (
+                          <div key={i} className="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                            <Check className="w-4 h-4 text-emerald-600 shrink-0 stroke-[3] mt-0.5" />
+                            <span>{cap}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Action CTAs */}
                   <div className="pt-3 flex flex-wrap gap-3">
@@ -206,28 +215,43 @@ export const FeaturesPage: React.FC = () => {
                           <p className="text-xs font-bold text-white font-mono">{feature.title}</p>
                           <span className="text-[10px] text-emerald-400 font-mono font-bold flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                            TELEMETRY: LIVE
+                            LIVE PROTOCOL ACTIVE
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Technical Specs List */}
+                    {/* Stats & Capability Highlights */}
                     <div className="space-y-2 font-mono text-xs">
                       <p className="text-[10px] text-blue-300 uppercase tracking-wider font-bold">
-                        Engine Specs & Protocols
+                        Engine Telemetry & Standards
                       </p>
-                      {feature.technicalSpecs.map((spec, i) => (
-                        <div key={i} className="flex items-center justify-between p-2 rounded-lg bg-white/5 border border-white/10 text-[11px]">
-                          <span className="text-slate-300">{spec.split(':')[0] || 'Protocol'}</span>
-                          <span className="text-[#008CFF] font-bold">{spec.split(':')[1] || spec}</span>
+                      
+                      <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-[11px] space-y-1">
+                        <div className="flex justify-between text-slate-300">
+                          <span>Status:</span>
+                          <span className="text-emerald-400 font-bold">Operational 24/7</span>
                         </div>
-                      ))}
+                        <div className="flex justify-between text-slate-300">
+                          <span>Sync Interval:</span>
+                          <span className="text-[#008CFF] font-bold">Sub-Second Live</span>
+                        </div>
+                        <div className="flex justify-between text-slate-300">
+                          <span>Network:</span>
+                          <span className="text-[#008CFF] font-bold">4G Multi-Network</span>
+                        </div>
+                      </div>
+
+                      {feature.statsHighlight && (
+                        <div className="p-2.5 rounded-lg bg-[#005CCC]/30 border border-blue-400/30 text-[11px] text-blue-100 font-bold text-center">
+                          ⚡ {feature.statsHighlight}
+                        </div>
+                      )}
                     </div>
 
                     <div className="pt-2 border-t border-blue-900/80 flex items-center justify-between text-[10px] text-blue-200">
-                      <span>Sync Latency: <strong className="text-emerald-300">10 Seconds</strong></span>
-                      <span>Coverage: <strong className="text-[#008CFF]">Global 4G + Satellite</strong></span>
+                      <span>Encryption: <strong className="text-emerald-300">TLS 1.3 + AES</strong></span>
+                      <span>Access: <strong className="text-[#008CFF]">Web & Mobile</strong></span>
                     </div>
 
                   </div>

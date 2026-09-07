@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
           
           {/* Column 1: Brand & Parent Company */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="inline-block">
+            <Link to="/#hero" className="inline-block">
               <div className="p-2 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 inline-block">
                 <img 
                   src="/logo.png" 
@@ -60,20 +60,20 @@ export const Footer: React.FC = () => {
                 VolterTrack Mobile Apps
               </p>
               <div className="flex flex-wrap gap-2">
-                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/20 transition-colors">
+                <a href="#mobile-app" className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/20 transition-colors">
                   <span className="text-sm"></span>
                   <div className="text-left">
                     <p className="text-[9px] text-blue-200 leading-none">Download on</p>
                     <p className="text-xs font-bold text-white leading-tight">App Store</p>
                   </div>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/20 transition-colors">
+                </a>
+                <a href="#mobile-app" className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 border border-white/15 text-white hover:bg-white/20 transition-colors">
                   <span className="text-sm text-emerald-300">▶</span>
                   <div className="text-left">
                     <p className="text-[9px] text-blue-200 leading-none">Get it on</p>
                     <p className="text-xs font-bold text-white leading-tight">Google Play</p>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
@@ -83,10 +83,10 @@ export const Footer: React.FC = () => {
             <p className="text-xs font-bold uppercase tracking-wider text-white">Platform</p>
             <ul className="space-y-2 text-blue-200">
               <li><Link to="/platform" className="hover:text-white transition-colors">Platform Overview</Link></li>
-              <li><Link to="/platform/dashboard" className="hover:text-white transition-colors">Web Dashboard</Link></li>
-              <li><Link to="/platform/mobile-app" className="hover:text-white transition-colors">Mobile App (iOS & Android)</Link></li>
-              <li><Link to="/platform/fleet-management" className="hover:text-white transition-colors">Fleet Management</Link></li>
-              <li><Link to="/platform/administration" className="hover:text-white transition-colors">Administration & RBAC</Link></li>
+              <li><Link to="/platform#dashboard" className="hover:text-white transition-colors">Web Dashboard</Link></li>
+              <li><Link to="/platform#mobile-app" className="hover:text-white transition-colors">Mobile App (iOS & Android)</Link></li>
+              <li><Link to="/platform#fleet-management" className="hover:text-white transition-colors">Fleet Management</Link></li>
+              <li><Link to="/platform#administration" className="hover:text-white transition-colors">Administration & RBAC</Link></li>
               <li><Link to="/pricing" className="hover:text-white transition-colors">Plans & Pricing</Link></li>
               <li><a href="https://app.voltertrack.com" target="_blank" rel="noopener noreferrer" className="text-[#008CFF] hover:underline flex items-center gap-1 font-semibold">Web App Sign In <ArrowUpRight className="w-3 h-3" /></a></li>
             </ul>
@@ -96,16 +96,15 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <p className="text-xs font-bold uppercase tracking-wider text-white">Features</p>
             <ul className="space-y-2 text-blue-200">
-              <li><Link to="/features/live-tracking" className="hover:text-white transition-colors">Live GPS Tracking</Link></li>
-              <li><Link to="/features/trip-history" className="hover:text-white transition-colors">Trip History & Playback</Link></li>
-              <li><Link to="/features/geofencing" className="hover:text-white transition-colors">Geofencing & Alerts</Link></li>
-              <li><Link to="/features/alerts" className="hover:text-white transition-colors">Alerts & Notifications</Link></li>
-              <li><Link to="/features/vehicle-management" className="hover:text-white transition-colors">Vehicle Management</Link></li>
-              <li><Link to="/features/driver-management" className="hover:text-white transition-colors">Driver Management</Link></li>
-              <li><Link to="/features/maintenance" className="hover:text-white transition-colors">Maintenance Schedules</Link></li>
-              <li><Link to="/features/fuel-management" className="hover:text-white transition-colors">Fuel Management</Link></li>
-              <li><Link to="/features/vehicle-security" className="hover:text-white transition-colors">Remote Immobilizer</Link></li>
-              <li><Link to="/features/integrations" className="hover:text-white transition-colors">APIs & Integrations</Link></li>
+              <li><Link to="/features#live-tracking" className="hover:text-white transition-colors">Live GPS Tracking</Link></li>
+              <li><Link to="/features#trip-history" className="hover:text-white transition-colors">Trip History & Playback</Link></li>
+              <li><Link to="/features#geofencing" className="hover:text-white transition-colors">Geofencing & Alerts</Link></li>
+              <li><Link to="/features#alerts" className="hover:text-white transition-colors">Alerts & Notifications</Link></li>
+              <li><Link to="/features#vehicle-management" className="hover:text-white transition-colors">Vehicle Management</Link></li>
+              <li><Link to="/features#driver-management" className="hover:text-white transition-colors">Driver Management</Link></li>
+              <li><Link to="/features#maintenance" className="hover:text-white transition-colors">Maintenance Schedules</Link></li>
+              <li><Link to="/features#vehicle-security" className="hover:text-white transition-colors">Remote Engine Cutoff</Link></li>
+              <li><Link to="/features#integrations" className="hover:text-white transition-colors">APIs & Integrations</Link></li>
             </ul>
           </div>
 
@@ -113,52 +112,38 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <p className="text-xs font-bold uppercase tracking-wider text-white">Industries</p>
             <ul className="space-y-2 text-blue-200">
-              <li><Link to="/industries/logistics" className="hover:text-white transition-colors">Logistics & Haulage</Link></li>
-              <li><Link to="/industries/transportation" className="hover:text-white transition-colors">Interstate Transportation</Link></li>
-              <li><Link to="/industries/delivery" className="hover:text-white transition-colors">Last-Mile Delivery</Link></li>
-              <li><Link to="/industries/construction" className="hover:text-white transition-colors">Construction & Equipment</Link></li>
-              <li><Link to="/industries/corporate" className="hover:text-white transition-colors">Corporate Pool Fleets</Link></li>
-              <li><Link to="/industries/car-rental" className="hover:text-white transition-colors">Car Rental & Leasing</Link></li>
-              <li><Link to="/industries/security" className="hover:text-white transition-colors">Security & Patrol Units</Link></li>
-              <li><Link to="/industries/government" className="hover:text-white transition-colors">Government & Municipal</Link></li>
+              <li><Link to="/industries#logistics" className="hover:text-white transition-colors">Logistics & Haulage</Link></li>
+              <li><Link to="/industries#transportation" className="hover:text-white transition-colors">Interstate Transportation</Link></li>
+              <li><Link to="/industries#delivery" className="hover:text-white transition-colors">Last-Mile Delivery</Link></li>
+              <li><Link to="/industries#construction" className="hover:text-white transition-colors">Construction & Equipment</Link></li>
+              <li><Link to="/industries#corporate" className="hover:text-white transition-colors">Corporate Pool Fleets</Link></li>
+              <li><Link to="/industries#car-rental" className="hover:text-white transition-colors">Car Rental & Leasing</Link></li>
+              <li><Link to="/industries#security" className="hover:text-white transition-colors">Security & Patrol Units</Link></li>
+              <li><Link to="/industries#government" className="hover:text-white transition-colors">Government & Municipal</Link></li>
             </ul>
           </div>
 
-          {/* Column 5: Resources & Company */}
+          {/* Column 5: Support & Quick CTAs */}
           <div className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-wider text-white">Resources & Company</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-white">Get In Touch</p>
             <ul className="space-y-2 text-blue-200">
-              <li><Link to="/resources/blog" className="hover:text-white transition-colors">Blog & Telematics Insights</Link></li>
-              <li><Link to="/help" className="hover:text-white transition-colors">Help Center & Guides</Link></li>
               <li><Link to="/faq" className="hover:text-white transition-colors">Frequently Asked Questions</Link></li>
-              <li><Link to="/support" className="hover:text-white transition-colors">Support & Ticketing</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">About VolterTrack</Link></li>
-              <li><Link to="/about/technology" className="hover:text-white transition-colors">Our Technology Architecture</Link></li>
-              <li><Link to="/about/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contact Sales</Link></li>
-              <li><Link to="/demo" className="text-[#008CFF] font-bold hover:underline">Schedule Live Demo</Link></li>
+              <li><Link to="/quote" className="hover:text-white transition-colors">Fleet Quote Calculator</Link></li>
+              <li><Link to="/demo" className="hover:text-white transition-colors">Schedule Live Walkthrough</Link></li>
+              <li><a href="mailto:info@voltertrack.com" className="hover:text-white transition-colors">info@voltertrack.com</a></li>
+              <li><a href="https://volternet.com" target="_blank" rel="noopener noreferrer" className="text-[#008CFF] font-bold hover:underline flex items-center gap-1">Volternet Technologies <ExternalLink className="w-3 h-3" /></a></li>
             </ul>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Legal, Security & Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-blue-300">
-          <div className="flex flex-wrap items-center gap-4">
-            <span>© {new Date().getFullYear()} VolterTrack. A product of Volternet Technologies. All rights reserved.</span>
-            <span className="hidden sm:inline text-blue-400">•</span>
-            <span>Built for Nigeria & Global Fleet Operators</span>
-          </div>
-
-          {/* Legal Links */}
-          <div className="flex flex-wrap items-center gap-4">
-            {LEGAL_PAGES.map((page) => (
-              <Link
-                key={page.name}
-                to={page.href}
-                className="hover:text-white transition-colors"
-              >
-                {page.name}
+        {/* Bottom Copyright & Legal Links */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-blue-300">
+          <p>© {new Date().getFullYear()} VolterTrack • A Volternet Technologies Product. All rights reserved.</p>
+          <div className="flex flex-wrap gap-4 text-[11px]">
+            {LEGAL_PAGES.map((lp) => (
+              <Link key={lp.href} to={lp.href} className="hover:text-white transition-colors">
+                {lp.name}
               </Link>
             ))}
           </div>

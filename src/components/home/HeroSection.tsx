@@ -17,9 +17,10 @@ import {
   Navigation,
   Sparkles,
   Zap,
-  Fuel,
   ShieldCheck,
-  Award
+  Award,
+  Smartphone,
+  Bell
 } from 'lucide-react';
 
 export const HeroSection: React.FC = () => {
@@ -322,20 +323,22 @@ export const HeroSection: React.FC = () => {
       <div className="relative max-w-6xl mx-auto -mt-10 sm:-mt-14 md:-mt-16 px-4 sm:px-6 lg:px-8 z-30">
         <div className="p-4 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-2xl shadow-blue-950/10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100">
           
+          {/* Stat 1: Instant Alerts */}
           <div className="flex items-center gap-3 sm:gap-4 p-2">
             <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-200/80 text-[#005CCC] flex items-center justify-center shrink-0 shadow-sm">
               <Zap className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xl sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
-                10s
+                &lt; 3s
               </span>
               <span className="text-[11px] text-slate-500 font-semibold">
-                Sub-Second Telemetry Sync
+                Instant Incident & Speed Alerts
               </span>
             </div>
           </div>
 
+          {/* Stat 2: Anti-Theft & Recovery */}
           <div className="flex items-center gap-3 sm:gap-4 p-2 pt-4 md:pt-2 md:pl-6">
             <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center shrink-0 shadow-sm">
               <ShieldCheck className="w-5 h-5" />
@@ -345,35 +348,37 @@ export const HeroSection: React.FC = () => {
                 99.8%
               </span>
               <span className="text-[11px] text-slate-500 font-semibold">
-                Anti-Theft Security Recovery
+                Anti-Theft Recovery Protection
               </span>
             </div>
           </div>
 
+          {/* Stat 3: Nationwide Coverage */}
           <div className="flex items-center gap-3 sm:gap-4 p-2 pt-4 md:pt-2 md:pl-6">
             <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-600 flex items-center justify-center shrink-0 shadow-sm">
-              <Fuel className="w-5 h-5" />
+              <MapPin className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xl sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
-                32%
+                36 States
               </span>
               <span className="text-[11px] text-slate-500 font-semibold">
-                Avg. Fuel Waste Reduction
+                Nationwide GPS Connectivity
               </span>
             </div>
           </div>
 
+          {/* Stat 4: 24/7 Mobile Access */}
           <div className="flex items-center gap-3 sm:gap-4 p-2 pt-4 md:pt-2 md:pl-6">
             <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center shrink-0 shadow-sm">
-              <Award className="w-5 h-5" />
+              <Smartphone className="w-5 h-5" />
             </div>
             <div>
               <span className="text-xl sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
                 24/7
               </span>
               <span className="text-[11px] text-slate-500 font-semibold">
-                DGPS Multi-Network Guard
+                Live Mobile & Web Access
               </span>
             </div>
           </div>

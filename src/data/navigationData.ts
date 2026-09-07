@@ -39,7 +39,7 @@ export const MAIN_NAVIGATION = [
           { name: 'Live GPS Tracking', href: '/features#live-tracking', description: 'Sub-second real-time vehicle location & status' },
           { name: 'Trip History & Playback', href: '/features#trip-history', description: 'Route replays, stops, idle time & speed logs' },
           { name: 'Geofencing & Perimeters', href: '/features#geofencing', description: 'Virtual boundaries with instant entry/exit alerts' },
-          { name: 'Alerts & Notifications', href: '/features#alerts', description: 'Ignition, overspeed, tamper, towing & power alerts' },
+          { name: 'Alerts & Notifications', href: '/features#alerts', description: 'Ignition, overspeed, towing & boundary alerts' },
         ],
       },
       {
@@ -54,8 +54,7 @@ export const MAIN_NAVIGATION = [
       {
         title: 'Advanced & Security',
         items: [
-          { name: 'Maintenance Management', href: '/features#maintenance', description: 'Preventive service schedules & maintenance logs' },
-          { name: 'Fuel Monitoring', href: '/features#fuel-monitoring', description: 'Sensor consumption analytics & theft detection', badge: 'Sensor Ready' },
+          { name: 'Maintenance Schedules', href: '/features#maintenance', description: 'Preventive service schedules & maintenance logs' },
           { name: 'Vehicle Security & Cutoff', href: '/features#vehicle-security', description: 'Remote engine immobilizer & recovery visibility' },
           { name: 'API & Integrations', href: '/features#integrations', description: 'REST APIs, webhooks, ERP & Traccar connectivity' },
         ],
@@ -73,9 +72,8 @@ export const MAIN_NAVIGATION = [
           { name: 'Fleet Management', href: '/solutions#fleet-management', description: 'For organizations managing multiple vehicles' },
           { name: 'Vehicle Security', href: '/solutions#vehicle-security', description: 'Anti-theft, immobilizer & location protection' },
           { name: 'Logistics Management', href: '/solutions#logistics', description: 'For haulage, dispatch & freight operations' },
-          { name: 'Driver Management', href: '/solutions#driver-management', description: 'Driver behavior, accountability & shift safety' },
-          { name: 'Business Automation', href: '/solutions#business-automation', description: 'Automated dispatch, geo-triggers & reporting' },
-          { name: 'Enterprise Fleet', href: '/solutions#enterprise', description: 'Scalable role-based governance for 100+ fleets' },
+          { name: 'Driver Accountability', href: '/solutions#driver-management', description: 'Driver behavior, accountability & shift safety' },
+          { name: 'Enterprise Governance', href: '/solutions#enterprise', description: 'Scalable role-based governance for 100+ fleets' },
         ],
       },
     ],
@@ -90,14 +88,18 @@ export const MAIN_NAVIGATION = [
           { name: 'Logistics & Haulage', href: '/industries#logistics', description: 'Interstate trucks, containers & freight' },
           { name: 'Transportation & Transit', href: '/industries#transportation', description: 'Interstate bus fleets & commercial transit' },
           { name: 'Last-Mile Delivery', href: '/industries#delivery', description: 'Couriers, delivery vans & dispatch bikes' },
-          { name: 'Construction & Mining', href: '/industries#construction', description: 'Heavy machinery, earthmovers & site vehicles' },
+          { name: 'Construction & Heavy Assets', href: '/industries#construction', description: 'Heavy machinery, earthmovers & site vehicles' },
           { name: 'Corporate Organizations', href: '/industries#corporate', description: 'Executive pool cars & employee transport' },
           { name: 'Car Rental & Leasing', href: '/industries#car-rental', description: 'Rental security, boundary lock & immobilizer' },
-          { name: 'Security & Recovery', href: '/industries#security', description: 'Patrol units, cash-in-transit & rapid recovery' },
-          { name: 'Government & Municipal', href: '/industries#government', description: 'Public works, utility fleets & emergency response' },
+          { name: 'Security Patrol & Recovery', href: '/industries#security', description: 'Patrol units, cash-in-transit & rapid recovery' },
+          { name: 'Government Fleets', href: '/industries#government', description: 'Public works, utility fleets & emergency response' },
         ],
       },
     ],
+  },
+  {
+    name: 'Pricing',
+    href: '/pricing',
   },
   {
     name: 'Resources',
@@ -106,18 +108,14 @@ export const MAIN_NAVIGATION = [
       {
         title: 'Knowledge & Support',
         items: [
-          { name: 'Resources Hub', href: '/resources#overview', description: 'Guides, articles, FAQs and platform documentation' },
-          { name: 'Blog & Fleet Insights', href: '/resources/blog', description: 'Industry articles, telematics trends & best practices' },
+          { name: 'Resources Hub', href: '/resources', description: 'Guides, articles, FAQs and platform documentation' },
+          { name: 'Blog & Telematics Insights', href: '/resources/blog', description: 'Industry articles, fleet trends & best practices' },
           { name: 'Help Center', href: '/help', description: 'Step-by-step guides, setup instructions & how-tos' },
           { name: 'Frequently Asked Questions', href: '/faq', description: 'Clear answers on tracking, hardware & features' },
           { name: 'Contact Support', href: '/support', description: 'Technical assistance, hardware support & sales desk' },
         ],
       },
     ],
-  },
-  {
-    name: 'Pricing',
-    href: '/pricing',
   },
   {
     name: 'About',
