@@ -16,6 +16,12 @@
     color-scheme: light;
     background-color: #F8FAFC;
     color: #0F172A;
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    overflow-x: clip;
   }
 
   /* Custom Light-Theme Scrollbar */
@@ -194,4 +200,13 @@
 
 .animate-pulse-blue {
   animation: pulseGlowBlue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Utility to hide horizontal scrollbars on swipeable mobile tab bars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

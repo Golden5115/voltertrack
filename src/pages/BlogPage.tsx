@@ -26,7 +26,7 @@ export const BlogPage: React.FC = () => {
   });
 
   return (
-    <div className="space-y-16 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-16 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Fleet Telematics Blog & Intelligence | VolterTrack"
         description="Expert articles and best practices on fleet fuel savings, driver safety, GPS tracking technology, and vehicle security in Nigeria."
@@ -38,7 +38,7 @@ export const BlogPage: React.FC = () => {
           <FileText className="w-3.5 h-3.5" />
           <span>VolterTrack Editorial</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
           Fleet Intelligence Blog
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -56,16 +56,16 @@ export const BlogPage: React.FC = () => {
               placeholder="Search articles (e.g. fuel theft, immobilizer, driver safety)..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none shadow-sm"
+              className="w-full pl-10 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none shadow-sm"
             />
           </div>
 
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 sm:pb-0 no-scrollbar">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 sm:pb-0 no-scrollbar snap-x">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCat(cat)}
-                className={`px-3.5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                className={`snap-start px-3.5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
                   selectedCat === cat
                     ? 'bg-[#005CCC] text-white shadow-md'
                     : 'bg-white border border-slate-200 text-slate-600 hover:text-[#005CCC]'

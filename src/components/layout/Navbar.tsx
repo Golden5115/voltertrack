@@ -10,6 +10,7 @@ import {
   Shield
 } from 'lucide-react';
 import { MAIN_NAVIGATION } from '../../data/navigationData';
+import { COMPANY_CONTACT } from '../../data/contactData';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,21 +35,35 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {/* Parent Company Top Banner */}
-      <div className="bg-[#012462] text-white text-xs py-1.5 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#005CCC] text-white">
+      <div className="bg-[#012462] text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#005CCC] text-white shrink-0">
               PARENT COMPANY
             </span>
-            <span className="text-blue-100 text-xs">
+            <span className="text-blue-100 text-[11px] sm:text-xs truncate">
               A Product of <strong className="text-white font-bold">Volternet Technologies</strong>
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-4 text-blue-200 text-[11px]">
-            <span className="flex items-center gap-1.5">
+          <a
+            href={`${COMPANY_CONTACT.whatsappUrl}?text=${encodeURIComponent(COMPANY_CONTACT.whatsappDefaultMessage)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:hidden inline-flex items-center gap-1 text-[10px] font-bold text-emerald-300 hover:text-emerald-200 whitespace-nowrap shrink-0"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            24/7 WhatsApp
+          </a>
+          <div className="hidden sm:flex items-center gap-4 text-blue-200 text-[11px]">
+            <a 
+              href={COMPANY_CONTACT.whatsappUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 font-semibold transition-colors"
+            >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              Platform Status: <strong className="text-emerald-300">All Systems Operational</strong>
-            </span>
+              WhatsApp (Online 24/7): <strong>{COMPANY_CONTACT.phoneDisplay}</strong>
+            </a>
             <span className="text-blue-400">|</span>
             <a 
               href="https://volternet.com" 
@@ -65,18 +80,18 @@ export const Navbar: React.FC = () => {
       {/* Main Light Glassmorphic Navigation */}
       <header className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md shadow-blue-950/5 py-2.5' 
-          : 'bg-white/85 backdrop-blur-md border-b border-slate-200/80 py-3.5'
+          ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-md shadow-blue-950/5 py-2 sm:py-2.5' 
+          : 'bg-white/85 backdrop-blur-md border-b border-slate-200/80 py-2.5 sm:py-3.5'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-2">
             
             {/* Official Logo */}
-            <Link to="/" className="flex items-center gap-2.5 group">
+            <Link to="/" className="flex items-center gap-2.5 group shrink-0">
               <img 
                 src="/logo.png" 
                 alt="VolterTrack Logo" 
-                className="h-10 w-auto object-contain group-hover:scale-105 transition-transform" 
+                className="h-7 sm:h-10 w-auto object-contain group-hover:scale-105 transition-transform" 
               />
             </Link>
 
@@ -209,20 +224,28 @@ export const Navbar: React.FC = () => {
               </Link>
             </div>
 
-            {/* Mobile Hamburger Toggle */}
-            <div className="flex lg:hidden items-center gap-2">
+            {/* Mobile Top Actions & Hamburger Toggle */}
+            <div className="flex lg:hidden items-center gap-1.5 sm:gap-2 shrink-0">
+              <a
+                href="https://app.voltertrack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold text-[#012462] hover:text-[#005CCC] bg-slate-100 hover:bg-slate-200/80 border border-slate-200 rounded-lg transition-colors whitespace-nowrap"
+              >
+                Sign In
+              </a>
               <Link
                 to="/quote"
-                className="px-3 py-1.5 text-xs font-bold text-white gradient-bg-brand rounded-lg shadow-sm"
+                className="px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold text-white gradient-bg-brand rounded-lg shadow-sm whitespace-nowrap"
               >
                 Get Started
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-slate-700 hover:text-[#005CCC] rounded-lg bg-slate-100 border border-slate-200 focus:outline-none"
+                className="p-1.5 sm:p-2 text-slate-700 hover:text-[#005CCC] rounded-lg bg-slate-100 border border-slate-200 focus:outline-none"
                 aria-label="Toggle Navigation Menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
               </button>
             </div>
           </div>
@@ -230,45 +253,52 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-2xl px-4 pt-4 pb-8 space-y-4 max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-200 shadow-xl">
+          <div className="lg:hidden border-t border-slate-200 bg-white/98 backdrop-blur-2xl px-4 pt-3 pb-8 space-y-3 max-h-[82vh] overflow-y-auto animate-in slide-in-from-top duration-200 shadow-xl">
             <div className="space-y-1">
               {MAIN_NAVIGATION.map((item) => (
-                <div key={item.name} className="border-b border-slate-100 py-2">
-                  <Link
-                    to={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between text-base font-bold text-[#012462] hover:text-[#005CCC] py-1"
-                  >
-                    <span>{item.name}</span>
-                  </Link>
-
-                  {item.sections && (
-                    <div className="pl-3 mt-2 space-y-1 border-l-2 border-blue-100">
-                      {item.sections.flatMap(sec => sec.items).map((sub) => (
+                <div key={item.name} className="border-b border-slate-100 py-1.5">
+                  {item.sections ? (
+                    <details className="group">
+                      <summary className="list-none [&::-webkit-details-marker]:hidden flex items-center justify-between text-base font-bold text-[#012462] hover:text-[#005CCC] py-2 cursor-pointer select-none min-h-[44px]">
+                        <span>{item.name}</span>
+                        <span className="text-sm text-slate-400 group-open:rotate-180 transition-transform duration-200 px-1">
+                          ▾
+                        </span>
+                      </summary>
+                      <div className="pl-3 mt-1 mb-2 space-y-1 border-l-2 border-blue-100">
                         <Link
-                          key={sub.name}
-                          to={sub.href}
+                          to={item.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block py-1.5 text-xs text-slate-600 hover:text-[#005CCC] font-medium transition-colors"
+                          className="block py-2 text-xs text-[#005CCC] font-bold transition-colors"
                         >
-                          {sub.name}
+                          Explore All {item.name} →
                         </Link>
-                      ))}
-                    </div>
+                        {item.sections.flatMap(sec => sec.items).map((sub) => (
+                          <Link
+                            key={sub.name}
+                            to={sub.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="block py-2 text-xs text-slate-600 hover:text-[#005CCC] font-medium transition-colors"
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </details>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between text-base font-bold text-[#012462] hover:text-[#005CCC] py-2 min-h-[44px]"
+                    >
+                      <span>{item.name}</span>
+                    </Link>
                   )}
                 </div>
               ))}
             </div>
 
             <div className="pt-4 space-y-2">
-              <a
-                href="https://app.voltertrack.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center py-2.5 text-sm font-bold text-slate-700 bg-slate-100 rounded-xl border border-slate-200"
-              >
-                Sign In to Platform
-              </a>
               <Link
                 to="/demo"
                 onClick={() => setMobileMenuOpen(false)}
@@ -276,6 +306,14 @@ export const Navbar: React.FC = () => {
               >
                 Request a Live Demo
               </Link>
+              <a
+                href={COMPANY_CONTACT.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-2.5 text-sm font-bold text-white bg-[#25D366] hover:bg-[#20ba59] rounded-xl shadow-md transition-colors"
+              >
+                <span>WhatsApp: {COMPANY_CONTACT.phoneDisplay} (24/7)</span>
+              </a>
               <Link
                 to="/quote"
                 onClick={() => setMobileMenuOpen(false)}

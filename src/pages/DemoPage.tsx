@@ -12,7 +12,7 @@ import { DemoBookingModal } from '../components/interactive/DemoBookingModal';
 
 export const DemoPage: React.FC = () => {
   return (
-    <div className="space-y-16 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-16 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Schedule a Live Demo | VolterTrack"
         description="Book a personalized 15-minute live platform demonstration with a VolterTrack fleet telematics specialist."
@@ -24,20 +24,20 @@ export const DemoPage: React.FC = () => {
           <Sparkles className="w-3.5 h-3.5" />
           <span>Interactive 1-on-1 Walkthrough</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
           See VolterTrack in action on your fleet.
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          Experience sub-second GPS tracking, simulated boundary geofencing, driver safety scoring, and remote engine cutoff customized to your operational workflow.
+          Experience live GPS tracking, boundary geofences, driver safety scoring, and remote engine cutoff tailored to your fleet.
         </p>
       </section>
 
       {/* Grid: Demo Benefits on Left, 3-Step Wizard on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         
         {/* Left Column: What you'll get */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+          <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
             <h3 className="text-xl font-bold text-[#012462] font-['Space_Grotesk']">
               What to Expect in Your Session
             </h3>

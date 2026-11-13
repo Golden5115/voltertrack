@@ -55,23 +55,23 @@ export const FeaturesPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-20 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-20 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Platform Features Catalog | VolterTrack"
-        description="Explore all 12 VolterTrack platform capabilities: Live GPS, Route Replay, Geofencing, Speed Governance, Remote Immobilizer, Maintenance, and APIs."
+        description="Explore all 10 VolterTrack platform capabilities: Live GPS, Route Replay, Geofencing, Speed Governance, Remote Cutoff, Maintenance, and APIs."
       />
 
       {/* 1. Header & Anchor Quick-Jump Bar */}
       <section className="text-center space-y-4 max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#005CCC] text-xs font-bold shadow-sm">
           <Layers className="w-3.5 h-3.5" />
-          <span>Unified Feature Catalog</span>
+          <span>Platform Capabilities</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#012462] font-['Space_Grotesk'] tracking-tight">
-          Every capability you need to track, manage, and protect your fleet.
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-[#012462] font-['Space_Grotesk'] tracking-tight">
+          Every tool to track, protect, and optimize your fleet.
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          From sub-second live GPS and automated boundary geofences to remote engine immobilization and driver safety scoring.
+          From live GPS tracking and boundary perimeters to remote engine cutoff and driver safety scorecards.
         </p>
 
         {/* Search Bar */}
@@ -79,42 +79,38 @@ export const FeaturesPage: React.FC = () => {
           <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Quick search capabilities (e.g. geofence, immobilizer, playback)..."
+            placeholder="Search capabilities (e.g. geofence, cutoff, playback)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none shadow-sm"
+            className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none shadow-sm"
           />
         </div>
 
         {/* Anchor Quick Jump Chips */}
-        <div className="pt-3 flex flex-wrap items-center justify-center gap-1.5 text-xs font-semibold">
-          {ALL_FEATURES.map((feat) => {
-            const anchorId = feat.slug === 'fuel-management' ? 'fuel-monitoring' : feat.slug;
-            return (
-              <a
-                key={feat.id}
-                href={`#${anchorId}`}
-                className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-[#005CCC] text-slate-600 hover:text-[#005CCC] hover:bg-blue-50/50 shadow-sm transition-all text-[11px]"
-              >
-                {feat.title}
-              </a>
-            );
-          })}
+        <div className="pt-3 flex items-center justify-start md:justify-center flex-nowrap md:flex-wrap gap-2 md:gap-1.5 overflow-x-auto pb-2 no-scrollbar snap-x text-xs font-semibold">
+          {ALL_FEATURES.map((feat) => (
+            <a
+              key={feat.id}
+              href={`#${feat.slug}`}
+              className="snap-start px-3.5 py-2 md:px-3 md:py-1.5 rounded-xl bg-white border border-slate-200 hover:border-[#005CCC] text-slate-600 hover:text-[#005CCC] hover:bg-blue-50/50 shadow-sm transition-all text-[11px] whitespace-nowrap shrink-0"
+            >
+              {feat.title}
+            </a>
+          ))}
         </div>
       </section>
 
       {/* 2. Detailed Single-Page Feature Showcase Sections */}
-      <section className="space-y-16">
+      <section className="space-y-10 sm:space-y-16">
         {filteredFeatures.map((feature, idx) => {
           const Icon = getFeatureIcon(feature.slug);
-          const anchorId = feature.slug === 'fuel-management' ? 'fuel-monitoring' : feature.slug;
           const isEven = idx % 2 === 0;
 
           return (
             <div
               key={feature.id}
-              id={anchorId}
-              className="scroll-mt-28 p-8 md:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-blue-950/5 hover:border-[#008CFF] transition-all duration-300 relative overflow-hidden"
+              id={feature.slug}
+              className="scroll-mt-28 p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-blue-950/5 hover:border-[#008CFF] transition-all duration-300 relative overflow-hidden"
             >
               {/* Ambient radial accent */}
               <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -184,17 +180,17 @@ export const FeaturesPage: React.FC = () => {
                   )}
 
                   {/* Action CTAs */}
-                  <div className="pt-3 flex flex-wrap gap-3">
+                  <div className="pt-3 flex flex-col sm:flex-row gap-3">
                     <Link
                       to="/quote"
-                      className="px-5 py-2.5 rounded-xl gradient-bg-brand-h hover:opacity-95 text-white font-bold text-xs shadow-md shadow-blue-600/20 transition-all flex items-center gap-1.5"
+                      className="w-full sm:w-auto px-5 py-3 sm:py-2.5 rounded-xl gradient-bg-brand-h hover:opacity-95 text-white font-bold text-xs shadow-md shadow-blue-600/20 transition-all flex items-center justify-center gap-1.5"
                     >
                       <span>Get Quote for {feature.title}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                     <Link
                       to="/demo"
-                      className="px-5 py-2.5 rounded-xl bg-white border border-slate-200 text-[#012462] hover:border-[#005CCC] font-bold text-xs transition-colors"
+                      className="w-full sm:w-auto px-5 py-3 sm:py-2.5 rounded-xl bg-white border border-slate-200 text-[#012462] hover:border-[#005CCC] font-bold text-xs transition-colors text-center"
                     >
                       Request Live Demo
                     </Link>
@@ -265,7 +261,7 @@ export const FeaturesPage: React.FC = () => {
       </section>
 
       {/* 3. Bottom Conversion CTA */}
-      <section className="p-8 md:p-14 rounded-3xl gradient-bg-brand text-center text-white space-y-5 shadow-2xl">
+      <section className="p-6 sm:p-8 md:p-14 rounded-2xl sm:rounded-3xl gradient-bg-brand text-center text-white space-y-5 shadow-2xl">
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-['Space_Grotesk']">
           Ready to equip your fleet with all these features?
         </h3>

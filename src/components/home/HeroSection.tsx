@@ -73,7 +73,7 @@ export const HeroSection: React.FC = () => {
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative overflow-hidden bg-gradient-to-b from-[#020c22] via-[#05143a] to-[#012462] text-white pt-10 md:pt-16 pb-28 md:pb-36 px-4 sm:px-6 lg:px-8 shadow-2xl select-none"
+        className="relative overflow-hidden bg-gradient-to-b from-[#020c22] via-[#05143a] to-[#012462] text-white pt-6 sm:pt-12 md:pt-16 pb-12 sm:pb-24 md:pb-36 px-4 sm:px-6 lg:px-8 shadow-2xl select-none"
       >
         
         {/* Background Cyber Road Map Grid & Atmosphere */}
@@ -91,24 +91,24 @@ export const HeroSection: React.FC = () => {
           </svg>
 
           {/* Ambient Radial Glows */}
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#008CFF]/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-[#005CCC]/25 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/4 left-1/4 w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] bg-[#008CFF]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-1/3 right-4 sm:right-10 w-[260px] sm:w-[500px] h-[260px] sm:h-[500px] bg-[#005CCC]/25 rounded-full blur-3xl pointer-events-none" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-6 items-center">
             
             {/* LEFT COLUMN: Main Typography, Badges & CTAs */}
-            <div className="lg:col-span-5 space-y-7 text-left">
+            <div className="lg:col-span-5 space-y-4 sm:space-y-7 text-left relative z-20">
               
               {/* Glowing Pill Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#008CFF]/10 border border-[#008CFF]/40 text-[#008CFF] text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/10 backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-[#008CFF] animate-ping" />
-                <span>Smart Vehicle Tracking & Fleet Management</span>
+              <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#008CFF]/10 border border-[#008CFF]/40 text-[#008CFF] text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-lg shadow-blue-500/10 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-[#008CFF] animate-ping shrink-0" />
+                <span>Smart GPS & Fleet Intelligence</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white font-['Space_Grotesk'] leading-[1.1] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white font-['Space_Grotesk'] leading-[1.12] tracking-tight">
                 Know Where Your <br className="hidden sm:inline" />
                 Vehicles Are. <br className="hidden sm:inline" />
                 <span className="bg-gradient-to-r from-white via-blue-100 to-[#008CFF] bg-clip-text text-transparent">
@@ -116,47 +116,45 @@ export const HeroSection: React.FC = () => {
                 </span>
               </h1>
 
-              {/* Subheading with highlighted emphasis */}
+              {/* Subheading */}
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg">
-                <strong className="text-white font-semibold">Track</strong>, <strong className="text-white font-semibold">monitor</strong>, <span className="text-[#008CFF] font-bold">secure</span>, and <strong className="text-white font-semibold">manage</strong> your vehicles in <span className="text-[#008CFF] font-bold">real time</span> with intelligent GPS technology built for individuals and modern businesses.
+                Real-time GPS tracking, remote engine cutoff, and automated fleet intelligence — built for individual car owners and growing commercial fleets.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-1">
-                {/* Primary Glowing Button */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 pt-1">
                 <Link
                   to="/quote"
-                  className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#008CFF] to-[#005CCC] hover:from-[#00A3FF] hover:to-[#006BE6] text-white font-bold text-sm shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 group"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-gradient-to-r from-[#008CFF] to-[#005CCC] hover:from-[#00A3FF] hover:to-[#006BE6] text-white font-bold text-sm shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 sm:hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group min-h-[46px]"
                 >
-                  <span>Track Your Vehicle</span>
+                  <span>Get Fleet Quote</span>
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
-                {/* Secondary Glass Button */}
                 <Link
-                  to="/solutions"
-                  className="px-7 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold text-sm border border-blue-400/40 hover:border-blue-400 backdrop-blur-md transition-all duration-300 shadow-md"
+                  to="/features"
+                  className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold text-sm border border-blue-400/40 hover:border-blue-400 backdrop-blur-md transition-all duration-300 shadow-md flex items-center justify-center min-h-[46px]"
                 >
-                  Explore Solutions
+                  Explore Platform
                 </Link>
               </div>
 
               {/* Bottom Feature Pill / Ticker */}
-              <div className="pt-1">
-                <div className="inline-flex flex-wrap items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs text-blue-100 backdrop-blur-md shadow-inner">
+              <div className="pt-0.5 sm:pt-1">
+                <div className="inline-flex flex-wrap items-center gap-x-3 gap-y-1.5 px-3.5 sm:px-4 py-2 rounded-2xl sm:rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-xs text-blue-100 backdrop-blur-md shadow-inner">
                   <span className="flex items-center gap-1.5 font-medium">
-                    <MapPin className="w-3.5 h-3.5 text-[#008CFF]" />
-                    Real-Time Tracking
+                    <MapPin className="w-3.5 h-3.5 text-[#008CFF] shrink-0" />
+                    Sub-Second Sync
                   </span>
                   <span className="text-blue-400/60">•</span>
                   <span className="flex items-center gap-1.5 font-medium">
-                    <Brain className="w-3.5 h-3.5 text-[#008CFF]" />
-                    Fleet Intelligence
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#008CFF] shrink-0" />
+                    Remote Cutoff
                   </span>
                   <span className="text-blue-400/60">•</span>
                   <span className="flex items-center gap-1.5 font-medium">
-                    <Clock className="w-3.5 h-3.5 text-[#008CFF]" />
-                    24/7 Visibility
+                    <Clock className="w-3.5 h-3.5 text-[#008CFF] shrink-0" />
+                    36 States Coverage
                   </span>
                 </div>
               </div>
@@ -164,10 +162,10 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* RIGHT COLUMN: Extra-Large 3D Laptop Mockup with Parallax Tilt & Floating Motion Cards */}
-            <div className="lg:col-span-7 relative flex items-center justify-center pt-6 lg:pt-0 perspective-1200 overflow-visible">
+            <div className="lg:col-span-7 relative lg:flex lg:items-center lg:justify-center pt-0 perspective-1200 overflow-visible">
               
               {/* Background Luxury Car Outline Silhouette */}
-              <div className="absolute -top-16 -left-10 right-0 h-96 opacity-20 pointer-events-none flex items-center justify-center">
+              <div className="absolute -top-4 sm:-top-16 left-0 sm:-left-10 right-0 h-44 sm:h-96 opacity-20 pointer-events-none flex items-center justify-center">
                 <svg viewBox="0 0 800 350" className="w-full h-full text-blue-400" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M 50 260 L 120 260 C 130 220 170 220 180 260 L 520 260 C 530 220 570 220 580 260 L 750 260 L 730 190 L 620 140 L 420 130 L 250 150 L 140 190 Z" strokeWidth="2.5" />
                   <path d="M 260 155 L 415 138 L 415 190 L 245 190 Z" strokeWidth="1.5" strokeDasharray="4 2" />
@@ -185,15 +183,15 @@ export const HeroSection: React.FC = () => {
                     : 'perspective(1200px) rotateX(1.5deg) rotateY(-1.5deg)',
                   transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
-                className="relative w-full max-w-[760px] lg:-mr-10 z-20 group transform-style-3d cursor-pointer"
+                className="relative w-full max-w-[760px] mx-auto -mt-[22%] -mb-[31%] sm:-mt-[13%] sm:-mb-[19%] lg:my-0 lg:-mr-10 z-10 group transform-style-3d cursor-pointer"
               >
                 
                 {/* Scaled Realistic Laptop Mockup Image */}
-                <div className="relative scale-110 sm:scale-125 lg:scale-130 transition-transform duration-300 origin-center">
+                <div className="relative scale-100 sm:scale-115 lg:scale-130 transition-transform duration-300 origin-center">
                   <img 
                     src="/laptop-realistic.png" 
                     alt="VolterTrack Laptop Mockup" 
-                    className="w-full h-auto drop-shadow-[0_30px_60px_rgba(0,140,255,0.4)] filter brightness-105 contrast-105 select-none" 
+                    className="w-full h-auto drop-shadow-[0_30px_60px_rgba(0,140,255,0.4)] filter brightness-105 contrast-105 select-none pointer-events-none" 
                   />
 
                   {/* Specular Light Reflection Sweep across the laptop screen */}
@@ -205,19 +203,45 @@ export const HeroSection: React.FC = () => {
                   
                   {/* Marker 1: Benz GLE (Alimosho / Idimu) */}
                   <div className="absolute top-[44%] left-[56%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                    <span className="w-10 h-10 rounded-full border-2 border-red-500/80 absolute -top-5 -left-5 animate-sonar-ring" />
-                    <span className="w-10 h-10 rounded-full border border-red-400/50 absolute -top-5 -left-5 animate-sonar-ring-delayed" />
-                    <span className="w-3 h-3 rounded-full bg-red-500 absolute -top-1.5 -left-1.5 shadow-md shadow-red-500 animate-pulse" />
+                    <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border-2 border-red-500/80 absolute -top-3.5 -left-3.5 sm:-top-5 sm:-left-5 animate-sonar-ring" />
+                    <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border border-red-400/50 absolute -top-3.5 -left-3.5 sm:-top-5 sm:-left-5 animate-sonar-ring-delayed" />
+                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500 absolute -top-1.5 -left-1.5 shadow-md shadow-red-500 animate-pulse" />
                   </div>
 
                   {/* Marker 2: Toyota Camry (Agege / Ikeja) */}
                   <div className="absolute top-[39%] left-[67%] transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                    <span className="w-10 h-10 rounded-full border-2 border-[#008CFF]/80 absolute -top-5 -left-5 animate-sonar-ring" />
-                    <span className="w-10 h-10 rounded-full border border-cyan-400/50 absolute -top-5 -left-5 animate-sonar-ring-delayed" />
-                    <span className="w-3 h-3 rounded-full bg-[#008CFF] absolute -top-1.5 -left-1.5 shadow-md shadow-blue-500 animate-pulse" />
+                    <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border-2 border-[#008CFF]/80 absolute -top-3.5 -left-3.5 sm:-top-5 sm:-left-5 animate-sonar-ring" />
+                    <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border border-cyan-400/50 absolute -top-3.5 -left-3.5 sm:-top-5 sm:-left-5 animate-sonar-ring-delayed" />
+                    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#008CFF] absolute -top-1.5 -left-1.5 shadow-md shadow-blue-500 animate-pulse" />
                   </div>
                 </div>
 
+              </div>
+
+              {/* Mobile Compact Telemetry Strip (prevents overlapping mockup on < sm screens) */}
+              <div className="sm:hidden grid grid-cols-3 gap-2 w-full relative z-20 mt-2">
+                <div className="p-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <TrendingUp className="w-3.5 h-3.5 text-[#008CFF] shrink-0" />
+                    <span className="text-sm font-bold font-mono leading-none">{activeVehicles}</span>
+                  </div>
+                  <p className="text-[10px] text-blue-200 leading-tight">Online Now</p>
+                </div>
+                <div className="p-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse shrink-0" />
+                    <span className="text-[11px] font-mono font-bold text-emerald-400 leading-none">ACTIVE</span>
+                  </div>
+                  <p className="text-[10px] text-blue-200 leading-tight">Live GPS</p>
+                </div>
+                <div className="p-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <Gauge className="w-3.5 h-3.5 text-[#008CFF] shrink-0" />
+                    <span className="text-sm font-bold font-mono leading-none">{speed}</span>
+                    <span className="text-[9px] text-blue-200">km/h</span>
+                  </div>
+                  <p className="text-[10px] text-blue-200 leading-tight truncate">Lagos, NG</p>
+                </div>
               </div>
 
               {/* FLOATING GLASS WIDGET 1: Top Right (24 Vehicles Online) with 3D Parallax */}
@@ -228,7 +252,7 @@ export const HeroSection: React.FC = () => {
                     : 'translate3d(0, 0, 0)',
                   transition: isHovered ? 'transform 0.15s ease-out' : 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
-                className="absolute -top-2 right-0 sm:right-2 z-30 animate-float-a"
+                className="hidden sm:block absolute -top-2 right-0 sm:right-2 z-30 animate-float-a"
               >
                 <div className="p-3.5 rounded-2xl bg-gradient-to-br from-white/25 to-white/10 backdrop-blur-xl border border-white/35 shadow-[0_15px_35px_rgba(0,140,255,0.35)] text-white flex items-center gap-3 hover:scale-105 transition-transform">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#005CCC] to-[#008CFF] flex items-center justify-center text-white shadow-md">
@@ -253,7 +277,7 @@ export const HeroSection: React.FC = () => {
                     : 'translate3d(0, 0, 0)',
                   transition: isHovered ? 'transform 0.15s ease-out' : 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
-                className="absolute top-1/2 -right-2 sm:-right-4 transform -translate-y-1/2 z-30 animate-float-b"
+                className="hidden sm:block absolute top-1/2 -right-2 sm:-right-4 transform -translate-y-1/2 z-30 animate-float-b"
               >
                 <div className="p-3 rounded-2xl bg-gradient-to-br from-white/25 to-white/10 backdrop-blur-xl border border-white/35 shadow-[0_15px_35px_rgba(0,140,255,0.35)] text-white flex items-center gap-3 hover:scale-105 transition-transform">
                   <div className="w-9 h-9 rounded-xl bg-[#008CFF]/20 border border-[#008CFF]/40 flex items-center justify-center text-[#008CFF] shadow-inner">
@@ -274,7 +298,7 @@ export const HeroSection: React.FC = () => {
                     : 'translate3d(0, 0, 0)',
                   transition: isHovered ? 'transform 0.15s ease-out' : 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
-                className="absolute -bottom-2 right-2 sm:right-6 z-30 animate-float-c"
+                className="hidden sm:block absolute -bottom-2 right-2 sm:right-6 z-30 animate-float-c"
               >
                 <div className="p-3.5 rounded-2xl bg-gradient-to-br from-white/25 to-white/10 backdrop-blur-xl border border-white/35 shadow-[0_15px_35px_rgba(0,140,255,0.35)] text-white space-y-1 hover:scale-105 transition-transform">
                   <div className="flex items-center gap-2">
@@ -301,7 +325,7 @@ export const HeroSection: React.FC = () => {
             viewBox="0 0 1440 120" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg" 
-            className="w-full h-12 sm:h-16 md:h-20 text-white preserve-3d"
+            className="w-full h-8 sm:h-16 md:h-20 text-white preserve-3d"
           >
             <path 
               d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,58.7C840,43,960,21,1080,21.3C1200,21,1320,43,1380,53.3L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" 
@@ -320,65 +344,65 @@ export const HeroSection: React.FC = () => {
       </section>
 
       {/* OVERLAPPING STYLISH STATS & TRUST RIBBON (Bridges Dark Hero into Light Sections) */}
-      <div className="relative max-w-6xl mx-auto -mt-10 sm:-mt-14 md:-mt-16 px-4 sm:px-6 lg:px-8 z-30">
-        <div className="p-4 sm:p-6 rounded-3xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-2xl shadow-blue-950/10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+      <div className="relative max-w-6xl mx-auto -mt-7 sm:-mt-14 md:-mt-16 px-4 sm:px-6 lg:px-8 z-30">
+        <div className="p-3.5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-2xl shadow-blue-950/10 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-6 md:divide-x divide-slate-100">
           
           {/* Stat 1: Instant Alerts */}
-          <div className="flex items-center gap-3 sm:gap-4 p-2">
-            <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-200/80 text-[#005CCC] flex items-center justify-center shrink-0 shadow-sm">
-              <Zap className="w-5 h-5" />
+          <div className="flex items-center gap-2.5 sm:gap-4 p-2.5 sm:p-2 rounded-xl sm:rounded-none bg-slate-50/70 sm:bg-transparent">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-blue-50 border border-blue-200/80 text-[#005CCC] flex items-center justify-center shrink-0 shadow-sm">
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div>
-              <span className="text-xl sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
+            <div className="min-w-0">
+              <span className="text-lg sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
                 &lt; 3s
               </span>
-              <span className="text-[11px] text-slate-500 font-semibold">
-                Instant Incident & Speed Alerts
+              <span className="text-[10px] sm:text-[11px] text-slate-500 font-semibold block leading-tight">
+                Instant Event Alerts
               </span>
             </div>
           </div>
 
           {/* Stat 2: Anti-Theft & Recovery */}
-          <div className="flex items-center gap-3 sm:gap-4 p-2 pt-4 md:pt-2 md:pl-6">
-            <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center shrink-0 shadow-sm">
-              <ShieldCheck className="w-5 h-5" />
+          <div className="flex items-center gap-2.5 sm:gap-4 p-2.5 sm:p-2 rounded-xl sm:rounded-none bg-slate-50/70 sm:bg-transparent md:pl-6">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center shrink-0 shadow-sm">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div>
-              <span className="text-xl sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
+            <div className="min-w-0">
+              <span className="text-lg sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
                 99.8%
               </span>
-              <span className="text-[11px] text-slate-500 font-semibold">
-                Anti-Theft Recovery Protection
+              <span className="text-[10px] sm:text-[11px] text-slate-500 font-semibold block leading-tight">
+                Asset Recovery Rate
               </span>
             </div>
           </div>
 
           {/* Stat 3: Nationwide Coverage */}
-          <div className="flex items-center gap-3 sm:gap-4 p-2 pt-4 md:pt-2 md:pl-6">
-            <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-600 flex items-center justify-center shrink-0 shadow-sm">
-              <MapPin className="w-5 h-5" />
+          <div className="flex items-center gap-2.5 sm:gap-4 p-2.5 sm:p-2 rounded-xl sm:rounded-none bg-slate-50/70 sm:bg-transparent md:pl-6">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-600 flex items-center justify-center shrink-0 shadow-sm">
+              <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div>
-              <span className="text-xl sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
+            <div className="min-w-0">
+              <span className="text-lg sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
                 36 States
               </span>
-              <span className="text-[11px] text-slate-500 font-semibold">
-                Nationwide GPS Connectivity
+              <span className="text-[10px] sm:text-[11px] text-slate-500 font-semibold block leading-tight">
+                Nationwide Coverage
               </span>
             </div>
           </div>
 
           {/* Stat 4: 24/7 Mobile Access */}
-          <div className="flex items-center gap-3 sm:gap-4 p-2 pt-4 md:pt-2 md:pl-6">
-            <div className="w-11 h-11 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center shrink-0 shadow-sm">
-              <Smartphone className="w-5 h-5" />
+          <div className="flex items-center gap-2.5 sm:gap-4 p-2.5 sm:p-2 rounded-xl sm:rounded-none bg-slate-50/70 sm:bg-transparent md:pl-6">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center shrink-0 shadow-sm">
+              <Smartphone className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <div>
-              <span className="text-xl sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
+            <div className="min-w-0">
+              <span className="text-lg sm:text-2xl font-extrabold text-[#012462] font-mono block leading-tight">
                 24/7
               </span>
-              <span className="text-[11px] text-slate-500 font-semibold">
-                Live Mobile & Web Access
+              <span className="text-[10px] sm:text-[11px] text-slate-500 font-semibold block leading-tight">
+                Mobile & Web Access
               </span>
             </div>
           </div>

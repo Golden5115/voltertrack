@@ -13,10 +13,11 @@ import {
 } from 'lucide-react';
 import { SEO } from '../components/common/SEO';
 import { ContactForm } from '../components/interactive/ContactForm';
+import { COMPANY_CONTACT } from '../data/contactData';
 
 export const ContactPage: React.FC = () => {
   return (
-    <div className="space-y-16 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-16 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Contact Us | VolterTrack Commercial & Support Desks"
         description="Get in touch with VolterTrack sales, technical support, and partnership desks in Nigeria and internationally."
@@ -28,7 +29,7 @@ export const ContactPage: React.FC = () => {
           <MessageSquare className="w-3.5 h-3.5" />
           <span>Get in Touch</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
           Let's talk about your fleet goals.
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -37,11 +38,11 @@ export const ContactPage: React.FC = () => {
       </section>
 
       {/* Grid: Contact Info on Left, Interactive Form on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
         
         {/* Left Column: Contact Channels */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+          <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
             <h3 className="text-xl font-bold text-[#012462] font-['Space_Grotesk']">
               Official Communication Channels
             </h3>
@@ -76,13 +77,27 @@ export const ContactPage: React.FC = () => {
 
               {/* Phone / WhatsApp */}
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200 text-[#25D366] flex items-center justify-center shrink-0">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-slate-500 font-medium">Phone & WhatsApp Support</p>
-                  <p className="text-sm font-bold text-[#012462] font-mono">+234 800 VOLTER (865837)</p>
-                  <p className="text-[10px] text-slate-500">Mon - Fri: 8:00 AM - 6:00 PM WAT (24/7 for Recovery)</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-slate-500 font-medium">WhatsApp & Call Desk</p>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold uppercase font-mono">
+                      Online 24/7
+                    </span>
+                  </div>
+                  <a 
+                    href={COMPANY_CONTACT.whatsappUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-sm font-bold text-[#012462] hover:text-[#25D366] font-mono block transition-colors"
+                  >
+                    {COMPANY_CONTACT.phoneDisplay}
+                  </a>
+                  <p className="text-[10px] text-emerald-700 font-medium">
+                    We are always online to respond 24/7 on WhatsApp & Phone.
+                  </p>
                 </div>
               </div>
 

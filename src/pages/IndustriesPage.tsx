@@ -38,7 +38,7 @@ export const IndustriesPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-20 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-20 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Industry Solutions | VolterTrack Fleet Management"
         description="Tailored vehicle intelligence workflows for logistics, interstate haulage, delivery dispatch, construction, corporate pools, and government fleets."
@@ -50,7 +50,7 @@ export const IndustriesPage: React.FC = () => {
           <Building2 className="w-3.5 h-3.5" />
           <span>Industry Blueprints</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#012462] font-['Space_Grotesk'] tracking-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-[#012462] font-['Space_Grotesk'] tracking-tight">
           Engineered for your sector's exact operational reality.
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -58,12 +58,12 @@ export const IndustriesPage: React.FC = () => {
         </p>
 
         {/* Quick jump anchor bar */}
-        <div className="pt-3 flex flex-wrap items-center justify-center gap-1.5 text-xs font-semibold">
+        <div className="pt-3 flex items-center justify-start md:justify-center flex-nowrap md:flex-wrap gap-2 md:gap-1.5 overflow-x-auto pb-2 no-scrollbar snap-x text-xs font-semibold">
           {ALL_INDUSTRIES.map((ind) => (
             <a
               key={ind.id}
               href={`#${ind.slug}`}
-              className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:border-[#005CCC] text-slate-600 hover:text-[#005CCC] hover:bg-blue-50 shadow-sm transition-all text-[11px]"
+              className="snap-start px-3.5 py-2 md:px-3 md:py-1.5 rounded-xl bg-white border border-slate-200 hover:border-[#005CCC] text-slate-600 hover:text-[#005CCC] hover:bg-blue-50 shadow-sm transition-all text-[11px] whitespace-nowrap shrink-0"
             >
               {ind.title}
             </a>
@@ -72,7 +72,7 @@ export const IndustriesPage: React.FC = () => {
       </section>
 
       {/* Industries Detailed Anchor Sections */}
-      <section className="space-y-16">
+      <section className="space-y-10 sm:space-y-16">
         {ALL_INDUSTRIES.map((ind) => {
           const Icon = getIndustryIcon(ind.slug);
 
@@ -80,28 +80,28 @@ export const IndustriesPage: React.FC = () => {
             <div
               key={ind.id}
               id={ind.slug}
-              className="scroll-mt-28 p-8 md:p-12 rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-blue-950/5 hover:border-[#008CFF] transition-all duration-300 space-y-8 relative overflow-hidden"
+              className="scroll-mt-28 p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-xl shadow-blue-950/5 hover:border-[#008CFF] transition-all duration-300 space-y-6 sm:space-y-8 relative overflow-hidden"
             >
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-200 text-[#005CCC] flex items-center justify-center font-bold shadow-sm">
+                  <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-200 text-[#005CCC] flex items-center justify-center font-bold shadow-sm shrink-0">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-[11px] font-extrabold font-mono text-[#005CCC] uppercase tracking-wider block">
                       Sector Blueprint
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-[#012462] font-['Space_Grotesk']">
+                    <h2 className="text-xl sm:text-3xl font-bold text-[#012462] font-['Space_Grotesk']">
                       {ind.title}
                     </h2>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 w-full md:w-auto">
                   <Link
                     to="/quote"
-                    className="px-5 py-2.5 rounded-xl gradient-bg-brand-h text-white font-bold text-xs shadow-md shadow-blue-600/20 hover:opacity-95 transition-all inline-flex items-center gap-1.5"
+                    className="w-full md:w-auto justify-center px-5 py-3 sm:py-2.5 rounded-xl gradient-bg-brand-h text-white font-bold text-xs shadow-md shadow-blue-600/20 hover:opacity-95 transition-all inline-flex items-center gap-1.5"
                   >
                     <span>Get {ind.title} Quote</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -120,10 +120,10 @@ export const IndustriesPage: React.FC = () => {
               </div>
 
               {/* Problems vs Solutions Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                 
                 {/* Sector Problems */}
-                <div className="p-6 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+                <div className="p-4 sm:p-6 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
                   <p className="text-xs font-bold uppercase tracking-wider text-rose-950 flex items-center gap-2">
                     <AlertTriangle className="w-4 h-4 text-rose-600" />
                     Critical Sector Vulnerabilities
@@ -139,7 +139,7 @@ export const IndustriesPage: React.FC = () => {
                 </div>
 
                 {/* VolterTrack Solutions */}
-                <div className="p-6 rounded-2xl bg-blue-50/60 border border-blue-200 space-y-3">
+                <div className="p-4 sm:p-6 rounded-2xl bg-blue-50/60 border border-blue-200 space-y-3">
                   <p className="text-xs font-bold uppercase tracking-wider text-[#012462] flex items-center gap-2">
                     <Zap className="w-4 h-4 text-[#005CCC]" />
                     The VolterTrack Operational Blueprint
@@ -158,7 +158,7 @@ export const IndustriesPage: React.FC = () => {
 
               {/* Workflow Architecture Card */}
               {ind.workflow && (
-                <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 font-mono text-xs">
+                <div className="p-4 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-3 font-mono text-xs">
                   <p className="text-[11px] uppercase tracking-wider text-[#005CCC] font-bold">
                     Operational Workflow Architecture
                   </p>
@@ -220,23 +220,23 @@ export const IndustriesPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="p-8 md:p-14 rounded-3xl gradient-bg-brand text-center text-white space-y-4 shadow-2xl">
-        <h3 className="text-2xl sm:text-3xl font-bold font-['Space_Grotesk']">
+      <section className="p-6 sm:p-8 md:p-14 rounded-2xl sm:rounded-3xl gradient-bg-brand text-center text-white space-y-4 shadow-2xl">
+        <h3 className="text-xl sm:text-3xl font-bold font-['Space_Grotesk']">
           Don't see your specific sector listed?
         </h3>
         <p className="text-xs sm:text-sm text-blue-100 max-w-lg mx-auto leading-relaxed">
           VolterTrack supports custom sensor configurations, protocols, and APIs for any asset tracking scenario.
         </p>
-        <div className="pt-2 flex justify-center gap-3">
+        <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3">
           <Link
             to="/quote"
-            className="px-6 py-3 rounded-xl bg-white hover:bg-blue-50 text-[#012462] font-bold text-xs shadow-lg transition-all"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-blue-50 text-[#012462] font-bold text-xs shadow-lg transition-all text-center"
           >
             Get Fleet Quote
           </Link>
           <Link
             to="/contact"
-            className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/20 transition-all"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/20 transition-all text-center"
           >
             Talk to an Engineer
           </Link>

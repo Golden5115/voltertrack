@@ -22,11 +22,11 @@ export const LegalPage: React.FC = () => {
   }
 
   return (
-    <div className="space-y-12 py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <div className="space-y-8 sm:space-y-12 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       <SEO title={`${title} | VolterTrack`} description={description} />
 
-      <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-        <Link to="/" className="hover:text-[#005CCC] flex items-center gap-1">
+      <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 font-medium">
+        <Link to="/" className="hover:text-[#005CCC] flex items-center gap-1 py-1">
           <ArrowLeft className="w-3.5 h-3.5" /> Home
         </Link>
         <span>/</span>
@@ -38,7 +38,7 @@ export const LegalPage: React.FC = () => {
           <Shield className="w-3.5 h-3.5" />
           <span>NDPR & GDPR Compliance Documentation</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#012462] font-['Space_Grotesk']">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-[#012462] font-['Space_Grotesk']">
           {title}
         </h1>
         <p className="text-xs text-slate-500 font-mono">
@@ -47,7 +47,7 @@ export const LegalPage: React.FC = () => {
       </header>
 
       {/* Dynamic Legal Content */}
-      <div className="prose prose-slate max-w-none text-xs sm:text-sm text-slate-700 space-y-6 leading-relaxed bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+      <div className="prose prose-slate max-w-none text-xs sm:text-sm text-slate-700 space-y-6 leading-relaxed bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm">
         
         {path.includes('privacy') && (
           <>

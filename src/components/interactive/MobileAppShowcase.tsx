@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { COMPANY_CONTACT } from '../../data/contactData';
 import { 
   Smartphone, 
   Radio, 
@@ -26,9 +27,9 @@ const SCREENS: ScreenData[] = [
   {
     id: 'map',
     title: 'Live GPS View',
-    subtitle: 'Sub-second real-time map with traffic',
-    badge: 'Real-Time Map & Telemetry',
-    desc: 'Monitor moving and parked vehicles in real-time. Instantly see driver details, current speed, ignition status, battery voltage, and street locations with sub-second GPS telemetry.',
+    subtitle: 'Real-time map with traffic',
+    badge: 'Live Map & Telemetry',
+    desc: 'Monitor moving and parked vehicles in real time. View driver details, current speed, ignition status, battery voltage, and street locations with sub-second telemetry.',
     icon: Radio,
     image: '/mockups/live-fleet.png',
     alt: 'VolterTrack Live GPS fleet tracking map view on iPhone',
@@ -42,8 +43,8 @@ const SCREENS: ScreenData[] = [
     id: 'alerts',
     title: 'Push Alerts Feed',
     subtitle: 'Instant ignition, speed & boundary alerts',
-    badge: 'Verified Telemetry Stream',
-    desc: 'Stay informed the exact millisecond any vehicle activity occurs. Receive real-time push alerts for ignition on/off, overspeed thresholds, curfew hours, and depot geofence crossings.',
+    badge: 'Instant Alert Stream',
+    desc: 'Receive instant push notifications for ignition on/off, overspeed thresholds, curfew hours, and depot geofence crossings.',
     icon: Bell,
     image: '/mockups/push-alerts.png',
     alt: 'VolterTrack real-time security and push alerts feed on iPhone',
@@ -58,7 +59,7 @@ const SCREENS: ScreenData[] = [
     title: 'Trip Replays',
     subtitle: 'Daily route breadcrumbs & stop durations',
     badge: 'Historical Route Playback',
-    desc: 'Review historical journeys with minute-by-minute playback. Analyze exact route paths, travel durations, idle stopovers, top speeds, and distance covered across Today, Yesterday, or past 7 days.',
+    desc: 'Review past journeys with animated route playback. Analyze exact route paths, travel durations, idle stopovers, top speeds, and distance covered.',
     icon: Navigation,
     image: '/mockups/trip-replays.png',
     alt: 'VolterTrack trip replays and journey telemetry playback on iPhone',
@@ -73,7 +74,7 @@ const SCREENS: ScreenData[] = [
     title: 'Remote Cutoff',
     subtitle: 'Secure one-tap engine immobilizer',
     badge: 'Anti-Theft Command Center',
-    desc: 'Safely and reliably immobilize stolen or unauthorized vehicles remotely via dedicated starter relay commands. Verify telemetry, call the tracker SIM directly, or restore engine power securely.',
+    desc: 'Safely immobilize stolen or unauthorized vehicles remotely with speed-interlocked engine cutoff commands directly from your phone.',
     icon: Lock,
     image: '/mockups/remote-cutoff.png',
     alt: 'VolterTrack remote engine immobilizer and command center on iPhone',
@@ -91,16 +92,16 @@ export const MobileAppShowcase: React.FC = () => {
   const activeScreen = SCREENS.find(s => s.id === activeTab) || SCREENS[0];
 
   return (
-    <div className="w-full rounded-3xl bg-gradient-to-b from-[#F0F6FF] via-[#F8FAFC] to-white border border-blue-100/80 p-6 sm:p-8 lg:p-12 shadow-xl shadow-blue-950/5 relative overflow-hidden">
+    <div className="w-full rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#F0F6FF] via-[#F8FAFC] to-white border border-blue-100/80 p-4 sm:p-8 lg:p-12 shadow-xl shadow-blue-950/5 relative overflow-hidden">
       
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 right-1/4 w-[450px] h-[450px] bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[350px] h-[350px] bg-emerald-400/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[240px] sm:w-[450px] h-[240px] sm:h-[450px] bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-[200px] sm:w-[350px] h-[200px] sm:h-[350px] bg-emerald-400/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-x-12 lg:gap-y-6 items-center relative z-10">
         
-        {/* Left Col: Explanatory Copy & Screen Switcher */}
-        <div className="lg:col-span-6 space-y-6">
+        {/* Top-Left Block (Order 1 on Mobile): Intro Copy & Screen Switcher Tabs */}
+        <div className="lg:col-span-6 lg:col-start-1 lg:row-start-1 space-y-4 sm:space-y-6 order-1">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#005CCC] text-xs font-bold shadow-sm">
             <Smartphone className="w-3.5 h-3.5" />
             <span>VolterTrack iOS & Android Apps</span>
@@ -110,12 +111,12 @@ export const MobileAppShowcase: React.FC = () => {
             Your entire fleet in the palm of your hand.
           </h3>
 
-          <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed">
             Monitor real-time vehicle movement, receive instant push notifications, replay journeys, and issue emergency engine cutoff commands directly from your mobile device anywhere in the world.
           </p>
 
-          {/* Interactive Feature Selectors */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          {/* Interactive Feature Selectors (2x2 compact grid so phone stays immediately visible below on mobile) */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-1 sm:pt-2">
             {SCREENS.map(item => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;
@@ -124,32 +125,37 @@ export const MobileAppShowcase: React.FC = () => {
                   key={item.id}
                   type="button"
                   onClick={() => setActiveTab(item.id)}
-                  className={`text-left p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer ${
+                  className={`text-left p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-center ${
                     isActive
-                      ? 'bg-white border-[#005CCC] shadow-lg shadow-blue-900/10 ring-2 ring-[#005CCC]/20 translate-y-[-1px]'
+                      ? 'bg-white border-[#005CCC] shadow-md sm:shadow-lg shadow-blue-900/10 ring-2 ring-[#005CCC]/20 translate-y-[-1px]'
                       : 'bg-white/80 border-slate-200/90 text-slate-600 hover:bg-white hover:border-slate-300'
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2">
-                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center ${isActive ? 'bg-[#005CCC] text-white' : 'bg-blue-50 text-[#005CCC]'}`}>
-                        <Icon className="w-4 h-4" />
+                  <div className="flex items-center justify-between gap-1.5 sm:gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <div className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center shrink-0 ${isActive ? 'bg-[#005CCC] text-white' : 'bg-blue-50 text-[#005CCC]'}`}>
+                        <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </div>
-                      <span className={`text-xs font-bold ${isActive ? 'text-[#012462]' : 'text-slate-800'}`}>{item.title}</span>
+                      <span className={`text-[11px] sm:text-xs font-bold leading-tight ${isActive ? 'text-[#012462]' : 'text-slate-800'}`}>
+                        {item.title}
+                      </span>
                     </div>
                     {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-[#005CCC]" />
+                      <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-[#005CCC] shrink-0" />
                     )}
                   </div>
-                  <p className="text-[11px] text-slate-500 mt-2 line-clamp-1">{item.subtitle}</p>
+                  <p className="hidden sm:block text-[11px] text-slate-500 mt-2 line-clamp-1">{item.subtitle}</p>
                 </button>
               );
             })}
           </div>
+        </div>
 
+        {/* Bottom-Left Block (Order 3 on Mobile, below phone preview): Active Highlights & App Store Badges */}
+        <div className="lg:col-span-6 lg:col-start-1 lg:row-start-2 space-y-5 sm:space-y-6 order-3">
           {/* Active Screen Highlights Box */}
-          <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200/70 space-y-3">
-            <div className="flex items-center justify-between">
+          <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200/70 space-y-2.5 sm:space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#005CCC]">
                 Active Screen • {activeScreen.title}
               </span>
@@ -171,12 +177,12 @@ export const MobileAppShowcase: React.FC = () => {
           </div>
 
           {/* App Store Download Badges */}
-          <div className="pt-2 flex flex-wrap items-center gap-3">
+          <div className="pt-1 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
             <a
-              href="https://apps.apple.com"
+              href={COMPANY_CONTACT.appStoreUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-slate-900 text-white flex items-center gap-3 shadow-md hover:bg-slate-800 transition-colors"
+              className="px-4 py-2.5 rounded-xl bg-slate-900 text-white flex items-center justify-center sm:justify-start gap-3 shadow-md hover:bg-slate-800 transition-colors"
             >
               <span className="text-2xl leading-none"></span>
               <div className="text-left">
@@ -189,7 +195,7 @@ export const MobileAppShowcase: React.FC = () => {
               href="https://play.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-slate-900 text-white flex items-center gap-3 shadow-md hover:bg-slate-800 transition-colors"
+              className="px-4 py-2.5 rounded-xl bg-slate-900 text-white flex items-center justify-center sm:justify-start gap-3 shadow-md hover:bg-slate-800 transition-colors"
             >
               <span className="text-xl leading-none text-emerald-400">▶</span>
               <div className="text-left">
@@ -200,7 +206,7 @@ export const MobileAppShowcase: React.FC = () => {
 
             <Link
               to="/quote"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#005CCC] hover:text-[#012462] transition-colors px-3 py-2"
+              className="inline-flex items-center justify-center sm:justify-start gap-1.5 text-xs font-bold text-[#005CCC] hover:text-[#012462] transition-colors px-3 py-2.5"
             >
               <span>Request Fleet Demo</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -208,10 +214,10 @@ export const MobileAppShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Col: Real High-Definition Phone Mockup Display */}
-        <div className="lg:col-span-6 flex flex-col items-center justify-center">
+        {/* Right Col (Order 2 on Mobile, directly beneath tabs so switching screen stays in view): Phone Mockup */}
+        <div className="lg:col-span-6 lg:col-start-7 lg:row-start-1 lg:row-span-2 lg:self-center flex flex-col items-center justify-center order-2">
           
-          <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[350px] lg:max-w-[370px] mx-auto flex items-center justify-center">
+          <div className="relative w-full max-w-[210px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[370px] mx-auto flex items-center justify-center">
             
             {/* Ambient Radial Glow Behind Device */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/25 via-[#005CCC]/20 to-indigo-500/10 rounded-full blur-3xl scale-95 pointer-events-none -z-10" />
@@ -239,13 +245,13 @@ export const MobileAppShowcase: React.FC = () => {
           </div>
 
           {/* Floating Screen Badge Pill below phone */}
-          <div className="mt-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-md text-xs font-semibold text-[#012462]">
+          <div className="mt-3 sm:mt-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 shadow-md text-xs font-semibold text-[#012462]">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
             <span>{activeScreen.badge}</span>
           </div>
 
           {/* Mobile Screen Switcher Indicator Dots */}
-          <div className="flex items-center gap-2 mt-3 sm:hidden">
+          <div className="flex items-center gap-2 mt-2.5 sm:hidden">
             {SCREENS.map((s) => (
               <button
                 key={s.id}

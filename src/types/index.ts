@@ -79,8 +79,8 @@ export interface IndustryItem {
     step1: string;
     step2: string;
     step3: string;
-    step4: string;
-    step5: string;
+    step4?: string;
+    step5?: string;
   };
   caseStudyHighlight: {
     clientType: string;
@@ -89,17 +89,26 @@ export interface IndustryItem {
   };
 }
 
+export interface VehicleYearTier {
+  id: string;
+  yearRange: string;
+  priceNgn: number;
+  description: string;
+  notes?: string;
+}
+
 export interface PricingPlan {
   id: string;
   name: string;
   tagline: string;
   popular?: boolean;
-  monthlyNgn: number;
-  annualNgn: number;
-  hardwareCostNgn: number;
-  installationCostNgn: number;
-  monthlyUsd: number;
-  hardwareCostUsd: number;
+  priceNgn?: number;
+  monthlyNgn?: number;
+  annualNgn?: number;
+  hardwareCostNgn?: number;
+  installationCostNgn?: number;
+  monthlyUsd?: number;
+  hardwareCostUsd?: number;
   features: string[];
   notIncluded?: string[];
   target: string;

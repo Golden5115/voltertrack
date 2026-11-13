@@ -14,7 +14,7 @@ import { BLOG_POSTS } from '../data/resourcesData';
 
 export const ResourcesPage: React.FC = () => {
   return (
-    <div className="space-y-20 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-20 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Knowledge, Guides & Support Hub | VolterTrack"
         description="Explore telematics whitepapers, installation tutorials, fleet management guides, blog articles, and help topics."
@@ -26,7 +26,7 @@ export const ResourcesPage: React.FC = () => {
           <BookOpen className="w-3.5 h-3.5" />
           <span>Knowledge & Resource Center</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
           Insights, guides, and tools to master your fleet.
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -35,11 +35,11 @@ export const ResourcesPage: React.FC = () => {
       </section>
 
       {/* Resource Category Cards */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
         
         <Link
           to="/resources/blog"
-          className="p-8 rounded-3xl bg-white border border-slate-200 shadow-md hover:border-[#005CCC] hover:shadow-xl transition-all group space-y-4"
+          className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-md hover:border-[#005CCC] hover:shadow-xl transition-all group space-y-4"
         >
           <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-[#005CCC] flex items-center justify-center font-bold group-hover:scale-110 transition-transform">
             <FileText className="w-6 h-6" />

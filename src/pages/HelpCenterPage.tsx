@@ -21,7 +21,7 @@ export const HelpCenterPage: React.FC = () => {
   );
 
   return (
-    <div className="space-y-16 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-16 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Help Center & Setup Documentation | VolterTrack"
         description="Step-by-step documentation, user guides, mobile app setup, geofence configuration, and device troubleshooting."
@@ -33,7 +33,7 @@ export const HelpCenterPage: React.FC = () => {
           <HelpCircle className="w-3.5 h-3.5" />
           <span>Knowledge & Setup Base</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
           How can we help you today?
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -48,13 +48,13 @@ export const HelpCenterPage: React.FC = () => {
             placeholder="Search guides (e.g. mobile app, geofences, cutoff)..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none shadow-sm"
+            className="w-full pl-10 pr-4 py-3 rounded-2xl bg-white border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none shadow-sm"
           />
         </div>
       </section>
 
       {/* Grid: Topics list on Left, Topic Reader on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
         
         {/* Left Col: Topic Navigation */}
         <div className="lg:col-span-4 space-y-2">
@@ -66,7 +66,7 @@ export const HelpCenterPage: React.FC = () => {
               <button
                 key={topic.id}
                 onClick={() => setSelectedTopic(topic)}
-                className={`w-full p-3.5 rounded-2xl text-left transition-all flex items-center justify-between ${
+                className={`w-full p-3.5 rounded-2xl text-left transition-all flex items-center justify-between gap-2 ${
                   selectedTopic.id === topic.id
                     ? 'bg-blue-50 border-2 border-[#005CCC] text-[#012462] shadow-sm'
                     : 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300'
@@ -78,14 +78,14 @@ export const HelpCenterPage: React.FC = () => {
                   </span>
                   <span className="text-xs font-bold mt-0.5 block">{topic.title}</span>
                 </div>
-                <ChevronRight className={`w-4 h-4 ${selectedTopic.id === topic.id ? 'text-[#005CCC]' : 'text-slate-400'}`} />
+                <ChevronRight className={`w-4 h-4 shrink-0 ${selectedTopic.id === topic.id ? 'text-[#005CCC]' : 'text-slate-400'}`} />
               </button>
             ))}
           </div>
         </div>
 
         {/* Right Col: Topic Reader */}
-        <div className="lg:col-span-8 p-8 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+        <div className="lg:col-span-8 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
           <div className="space-y-2 pb-4 border-b border-slate-200">
             <span className="text-xs font-mono font-bold text-[#005CCC] uppercase tracking-wider">
               {selectedTopic.category}
@@ -112,9 +112,9 @@ export const HelpCenterPage: React.FC = () => {
             ))}
           </div>
 
-          <div className="p-4 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-between text-xs">
+          <div className="p-4 rounded-2xl bg-blue-50 border border-blue-200 flex flex-wrap items-center justify-between gap-2 text-xs">
             <span className="text-slate-700">Still have questions regarding this setup?</span>
-            <Link to="/support" className="text-[#005CCC] font-bold hover:underline">
+            <Link to="/support" className="text-[#005CCC] font-bold hover:underline shrink-0">
               Open Support Ticket →
             </Link>
           </div>

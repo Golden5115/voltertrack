@@ -43,7 +43,7 @@ export const CareersPage: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-20 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-20 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Careers at VolterTrack | Join Our Engineering Team"
         description="Join VolterTrack and Volternet Technologies in building the future of vehicle intelligence, IoT, and fleet SaaS in Africa."
@@ -55,7 +55,7 @@ export const CareersPage: React.FC = () => {
           <Briefcase className="w-3.5 h-3.5" />
           <span>Join the Team</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
           Build the future of fleet intelligence.
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -65,7 +65,7 @@ export const CareersPage: React.FC = () => {
 
       {/* Open Roles List */}
       <section className="space-y-4 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold text-[#012462] font-['Space_Grotesk']">
+        <h2 className="text-xl sm:text-2xl font-bold text-[#012462] font-['Space_Grotesk']">
           Open Positions
         </h2>
 
@@ -73,7 +73,7 @@ export const CareersPage: React.FC = () => {
           {openRoles.map((role, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-3xl bg-white border border-slate-200 hover:border-[#005CCC] shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
+              className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 hover:border-[#005CCC] shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-4"
             >
               <div className="space-y-1.5">
                 <div className="flex flex-wrap items-center gap-2">
@@ -84,13 +84,13 @@ export const CareersPage: React.FC = () => {
                     {role.type} • {role.location}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-[#012462]">{role.title}</h3>
+                <h3 className="text-base sm:text-lg font-bold text-[#012462]">{role.title}</h3>
                 <p className="text-xs text-slate-600">{role.description}</p>
               </div>
 
               <a
                 href="mailto:careers@volternet.com?subject=Application for "
-                className="px-5 py-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 hover:text-[#005CCC] hover:border-[#005CCC] text-xs font-bold transition-colors shrink-0 self-start md:self-auto"
+                className="w-full md:w-auto text-center px-5 py-3 sm:py-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 hover:text-[#005CCC] hover:border-[#005CCC] text-xs font-bold transition-colors shrink-0"
               >
                 Apply Now →
               </a>

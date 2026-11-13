@@ -15,7 +15,7 @@ import { SEO } from '../components/common/SEO';
 
 export const TechnologyPage: React.FC = () => {
   return (
-    <div className="space-y-20 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-12 sm:space-y-20 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <SEO 
         title="Technology & Cloud Architecture | VolterTrack"
         description="High-availability telematics cloud infrastructure, GPS hardware protocols, sub-second socket streaming, and AES-256 data encryption."
@@ -27,7 +27,7 @@ export const TechnologyPage: React.FC = () => {
           <Cpu className="w-3.5 h-3.5" />
           <span>Under the Hood</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#012462] font-['Space_Grotesk']">
           Enterprise Cloud Telematics Architecture
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -36,8 +36,8 @@ export const TechnologyPage: React.FC = () => {
       </section>
 
       {/* Architecture Highlights */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
           <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 text-[#005CCC] flex items-center justify-center font-bold">
             <Radio className="w-5 h-5" />
           </div>
@@ -47,7 +47,7 @@ export const TechnologyPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
+        <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
           <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center font-bold">
             <Server className="w-5 h-5" />
           </div>
@@ -57,7 +57,7 @@ export const TechnologyPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
+        <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
           <div className="w-10 h-10 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center font-bold">
             <Lock className="w-5 h-5" />
           </div>
@@ -67,7 +67,7 @@ export const TechnologyPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
+        <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-md space-y-3">
           <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center font-bold">
             <Database className="w-5 h-5" />
           </div>
@@ -79,10 +79,10 @@ export const TechnologyPage: React.FC = () => {
       </section>
 
       {/* Developer API Callout */}
-      <section className="p-8 md:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
+      <section className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-xl">
-            <h2 className="text-2xl font-bold text-[#012462] font-['Space_Grotesk']">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#012462] font-['Space_Grotesk']">
               Developer APIs & Webhooks
             </h2>
             <p className="text-xs text-slate-600 leading-relaxed">
@@ -90,8 +90,8 @@ export const TechnologyPage: React.FC = () => {
             </p>
           </div>
           <Link
-            to="/features/integrations"
-            className="px-6 py-3 rounded-xl gradient-bg-brand-h text-white font-bold text-xs shrink-0 shadow-md"
+            to="/features#integrations"
+            className="w-full md:w-auto text-center px-6 py-3 rounded-xl gradient-bg-brand-h text-white font-bold text-xs shrink-0 shadow-md"
           >
             Explore API Documentation
           </Link>

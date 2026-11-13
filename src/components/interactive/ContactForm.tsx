@@ -85,9 +85,9 @@ export const ContactForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-3xl bg-white border border-slate-200/90 p-6 md:p-8 shadow-xl shadow-blue-950/5 space-y-4">
+    <form onSubmit={handleSubmit} className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-6 md:p-8 shadow-xl shadow-blue-950/5 space-y-4">
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-3">
         <div>
           <label className="block text-xs font-bold text-[#012462] mb-1">Your Name *</label>
           <input
@@ -96,7 +96,7 @@ export const ContactForm: React.FC = () => {
             placeholder="e.g. Oluwaseun Davies"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+            className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
           />
         </div>
 
@@ -108,7 +108,7 @@ export const ContactForm: React.FC = () => {
             placeholder="oluwaseun@company.com"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+            className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
           />
         </div>
 
@@ -120,7 +120,7 @@ export const ContactForm: React.FC = () => {
             placeholder="+234 802 000 0000"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+            className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
           />
         </div>
 
@@ -131,22 +131,22 @@ export const ContactForm: React.FC = () => {
             placeholder="e.g. Premier Haulage Ltd"
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-            className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+            className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-3">
         <div>
           <label className="block text-xs font-bold text-[#012462] mb-1">Department</label>
           <select
             value={formData.department}
             onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-            className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-semibold focus:border-[#005CCC] focus:outline-none"
+            className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-semibold focus:border-[#005CCC] focus:outline-none"
           >
             <option value="sales">Sales & Fleet Quotations (sales@voltertrack.com)</option>
             <option value="support">Technical Support & Tracking (support@voltertrack.com)</option>
-            <option value="billing">Billing & Subscriptions</option>
+            <option value="billing">Installation Pricing & Quotes</option>
             <option value="enterprise">Enterprise Partnerships</option>
           </select>
         </div>
@@ -158,7 +158,7 @@ export const ContactForm: React.FC = () => {
             placeholder="e.g. Inquiry regarding 25 Truck Fleet Tracking"
             value={formData.subject}
             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-            className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+            className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
           />
         </div>
       </div>
@@ -171,7 +171,7 @@ export const ContactForm: React.FC = () => {
           placeholder="Please describe your fleet requirements, questions, or vehicle tracking needs..."
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none resize-none"
+          className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none resize-none"
         />
       </div>
 

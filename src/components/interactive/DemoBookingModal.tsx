@@ -110,19 +110,19 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
   }
 
   return (
-    <div className="rounded-3xl bg-white border border-slate-200/90 p-6 md:p-8 shadow-xl shadow-blue-950/5 relative overflow-hidden">
+    <div className="rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-6 md:p-8 shadow-xl shadow-blue-950/5 relative overflow-hidden">
       
       {/* Progress Steps Header */}
-      <div className="flex items-center justify-between pb-6 border-b border-slate-200">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-5 sm:pb-6 border-b border-slate-200">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 text-[#005CCC] flex items-center justify-center font-mono font-bold text-sm">
+          <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-200 text-[#005CCC] flex items-center justify-center font-mono font-bold text-sm shrink-0">
             {step}/3
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-[#005CCC]">
               {step === 1 ? 'Step 1: Fleet Profile' : step === 2 ? 'Step 2: Platform Modules' : 'Step 3: Schedule & Contact'}
             </p>
-            <h4 className="text-base font-bold text-[#012462]">
+            <h4 className="text-sm sm:text-base font-bold text-[#012462]">
               {step === 1 ? 'Tell us about your vehicles' : step === 2 ? 'What would you like to see?' : 'Pick a time that suits you'}
             </h4>
           </div>
@@ -153,7 +153,7 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
               <select
                 value={formData.fleetSize}
                 onChange={(e) => setFormData({ ...formData, fleetSize: e.target.value })}
-                className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-semibold focus:border-[#005CCC] focus:outline-none"
+                className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-semibold focus:border-[#005CCC] focus:outline-none"
               >
                 <option value="1-3 vehicles">1 - 3 Vehicles (Personal / SME)</option>
                 <option value="4-10 vehicles">4 - 10 Vehicles (Growing Fleet)</option>
@@ -170,7 +170,7 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
               <select
                 value={formData.industry}
                 onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-semibold focus:border-[#005CCC] focus:outline-none"
+                className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-semibold focus:border-[#005CCC] focus:outline-none"
               >
                 <option value="Logistics & Haulage">Logistics & Haulage</option>
                 <option value="Interstate Transportation">Interstate Transportation & Commercial Bus</option>
@@ -186,7 +186,7 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
             <button
               type="button"
               onClick={() => setStep(2)}
-              className="w-full py-3.5 rounded-xl gradient-bg-brand-h hover:opacity-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 transition-all"
+              className="w-full py-3.5 rounded-xl gradient-bg-brand-h hover:opacity-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 transition-all min-h-[46px]"
             >
               <span>Continue to Platform Features</span>
               <ArrowRight className="w-4 h-4" />
@@ -218,14 +218,14 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
                   <div
                     key={mod}
                     onClick={() => toggleModule(mod)}
-                    className={`p-3 rounded-xl border text-xs font-semibold cursor-pointer transition-all flex items-center justify-between ${
+                    className={`p-3 rounded-xl border text-xs font-semibold cursor-pointer transition-all flex items-center justify-between gap-2 ${
                       isSelected
                         ? 'bg-blue-50/90 border-[#005CCC] text-[#012462]'
                         : 'bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300'
                     }`}
                   >
                     <span>{mod}</span>
-                    <div className={`w-4 h-4 rounded flex items-center justify-center border ${
+                    <div className={`w-4 h-4 rounded flex items-center justify-center border shrink-0 ${
                       isSelected ? 'bg-[#005CCC] border-[#005CCC] text-white' : 'border-slate-300 bg-white'
                     }`}>
                       {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
@@ -235,18 +235,18 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
               })}
             </div>
 
-            <div className="flex gap-3 pt-2">
+            <div className="flex flex-col-reverse sm:flex-row gap-2.5 sm:gap-3 pt-2">
               <button
                 type="button"
                 onClick={() => setStep(1)}
-                className="w-1/3 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
+                className="w-full sm:w-1/3 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors min-h-[44px]"
               >
                 Back
               </button>
               <button
                 type="button"
                 onClick={() => setStep(3)}
-                className="w-2/3 py-3.5 rounded-xl gradient-bg-brand-h hover:opacity-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 transition-all"
+                className="w-full sm:w-2/3 py-3.5 rounded-xl gradient-bg-brand-h hover:opacity-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/20 transition-all min-h-[46px]"
               >
                 <span>Continue to Schedule</span>
                 <ArrowRight className="w-4 h-4" />
@@ -258,7 +258,7 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
         {/* STEP 3: Contact & Time */}
         {step === 3 && (
           <div className="space-y-4 animate-in fade-in duration-200">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-3">
               <div>
                 <label className="block text-xs font-bold text-[#012462] mb-1">Full Name *</label>
                 <input
@@ -267,7 +267,7 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
                   placeholder="e.g. Babatunde Lawal"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+                  className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
                 />
               </div>
 
@@ -279,7 +279,7 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
                   placeholder="e.g. SwiftFreight Logistics Ltd"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+                  className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
                 />
               </div>
 
@@ -291,7 +291,7 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
                   placeholder="babatunde@company.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+                  className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
                 />
               </div>
 
@@ -303,20 +303,20 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
                   placeholder="+234 803 000 0000"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+                  className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Date & Time Slot */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-3 pt-1">
               <div>
                 <label className="block text-xs font-bold text-[#012462] mb-1">Preferred Date</label>
                 <input
                   type="date"
                   value={formData.preferredDate}
                   onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-medium focus:border-[#005CCC] focus:outline-none"
+                  className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-medium focus:border-[#005CCC] focus:outline-none"
                 />
               </div>
 
@@ -325,7 +325,7 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
                 <select
                   value={formData.preferredTime}
                   onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                  className="w-full p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs font-semibold focus:border-[#005CCC] focus:outline-none"
+                  className="w-full p-3 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-base sm:text-xs font-semibold focus:border-[#005CCC] focus:outline-none"
                 >
                   <option value="10:00 AM (WAT)">10:00 AM (WAT)</option>
                   <option value="11:30 AM (WAT)">11:30 AM (WAT)</option>
@@ -335,18 +335,18 @@ export const DemoBookingModal: React.FC<DemoBookingProps> = ({ embedded = false 
               </div>
             </div>
 
-            <div className="flex gap-3 pt-2">
+            <div className="flex flex-col-reverse sm:flex-row gap-2.5 sm:gap-3 pt-2">
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="w-1/3 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
+                className="w-full sm:w-1/3 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors min-h-[44px]"
               >
                 Back
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-2/3 py-3.5 rounded-xl gradient-bg-brand-h hover:opacity-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 transition-all"
+                className="w-full sm:w-2/3 py-3.5 rounded-xl gradient-bg-brand-h hover:opacity-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 transition-all min-h-[46px]"
               >
                 {isSubmitting ? (
                   <span>Reserving Demo Slot...</span>

@@ -115,14 +115,14 @@ export const LiveMapSimulator: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[480px] lg:h-[540px]">
         
         {/* Left Sidebar: Fleet List & Status Filter */}
-        <div className="lg:col-span-3 bg-slate-50 border-r border-slate-200 flex flex-col h-64 lg:h-full overflow-hidden">
+        <div className="lg:col-span-3 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col h-56 lg:h-full overflow-hidden">
           
           {/* Status Quick Filter Tabs */}
           <div className="p-3 border-b border-slate-200 bg-white">
             <p className="text-[11px] font-bold uppercase tracking-wider text-[#012462] mb-2">
               Fleet Status Filter
             </p>
-            <div className="grid grid-cols-4 gap-1 text-[10px] font-bold">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-1 text-[11px] sm:text-[10px] font-bold">
               {[
                 { id: 'all', label: 'All', count: DEMO_FLEET.length },
                 { id: 'moving', label: 'Moving', count: DEMO_FLEET.filter(v=>v.status==='moving').length, color: 'text-emerald-600' },
@@ -132,7 +132,7 @@ export const LiveMapSimulator: React.FC = () => {
                 <button
                   key={tab.id}
                   onClick={() => setFilterStatus(tab.id)}
-                  className={`py-1.5 px-1 rounded-lg text-center transition-all ${
+                  className={`py-2 sm:py-1.5 px-2 sm:px-1 rounded-lg text-center transition-all ${
                     filterStatus === tab.id 
                       ? 'bg-[#005CCC] text-white shadow-sm' 
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
@@ -161,25 +161,25 @@ export const LiveMapSimulator: React.FC = () => {
                       : 'hover:bg-slate-100/80 border border-transparent bg-white'
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 min-w-0">
                       <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${
                         vehicle.status === 'moving' ? 'bg-emerald-500 animate-pulse' :
                         vehicle.status === 'idle' ? 'bg-amber-500' :
                         vehicle.status === 'parked' ? 'bg-blue-500' : 'bg-slate-400'
                       }`} />
-                      <p className="text-xs font-bold text-[#012462] tracking-tight truncate max-w-[130px]">
+                      <p className="text-xs font-bold text-[#012462] tracking-tight truncate">
                         {vehicle.name}
                       </p>
                     </div>
-                    <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
+                    <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 shrink-0">
                       {vehicle.plate}
                     </span>
                   </div>
 
-                  <div className="flex items-center justify-between text-[11px] text-slate-500 mt-1.5">
-                    <span className="truncate max-w-[120px]">{vehicle.city}</span>
-                    <span className="font-mono text-[#005CCC] font-bold">
+                  <div className="flex items-center justify-between gap-2 text-[11px] text-slate-500 mt-1.5">
+                    <span className="truncate">{vehicle.city}</span>
+                    <span className="font-mono text-[#005CCC] font-bold shrink-0">
                       {vehicle.status === 'moving' ? `${vehicle.speed} km/h` : vehicle.status.toUpperCase()}
                     </span>
                   </div>
@@ -190,21 +190,21 @@ export const LiveMapSimulator: React.FC = () => {
         </div>
 
         {/* Center: Live Vector Simulated Map Display */}
-        <div className="lg:col-span-6 relative bg-[#EEF4FB] overflow-hidden flex items-center justify-center min-h-[300px] select-none border-r border-slate-200">
+        <div className="lg:col-span-6 relative bg-[#EEF4FB] overflow-hidden flex items-center justify-center min-h-[340px] sm:min-h-[380px] lg:min-h-[300px] select-none border-b lg:border-b-0 lg:border-r border-slate-200">
           
           {/* Subtle light grid background */}
           <div className="absolute inset-0 bg-grid-cyber opacity-70" />
 
           {/* Light Radar Sweep Effect */}
-          <div className="absolute w-[450px] h-[450px] rounded-full border border-blue-200 pointer-events-none flex items-center justify-center">
-            <div className="w-[300px] h-[300px] rounded-full border border-blue-200/80" />
-            <div className="w-[150px] h-[150px] rounded-full border border-blue-200/60" />
+          <div className="absolute w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] rounded-full border border-blue-200 pointer-events-none flex items-center justify-center">
+            <div className="w-[180px] h-[180px] sm:w-[300px] sm:h-[300px] rounded-full border border-blue-200/80" />
+            <div className="w-[90px] h-[90px] sm:w-[150px] sm:h-[150px] rounded-full border border-blue-200/60" />
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-blue-400/10 to-transparent animate-radar-sweep-light pointer-events-none" />
           </div>
 
           {/* Simulated Geofence Polygons */}
           {showGeofences && (
-            <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+            <svg viewBox="0 0 520 380" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full pointer-events-none z-10">
               {DEMO_GEOFENCES.map((gf) => {
                 return (
                   <g key={gf.id}>
@@ -225,7 +225,7 @@ export const LiveMapSimulator: React.FC = () => {
           )}
 
           {/* SVG Trajectory Breadcrumbs / Route Playback Line */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
+          <svg viewBox="0 0 520 380" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full pointer-events-none z-10">
             <polyline
               points="110,340 180,260 260,220 340,160 420,110"
               fill="none"
@@ -312,11 +312,11 @@ export const LiveMapSimulator: React.FC = () => {
 
           {/* Replay Control Bar at bottom of map */}
           <div className="absolute bottom-3 left-3 right-3 z-30">
-            <div className="bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-2.5 flex items-center justify-between gap-3 shadow-lg">
-              <div className="flex items-center gap-2">
+            <div className="bg-white/95 backdrop-blur-md border border-slate-200 rounded-2xl p-2 sm:p-2.5 flex items-center justify-between gap-2.5 sm:gap-3 shadow-lg">
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <button
                   onClick={() => setIsPlayingReplay(!isPlayingReplay)}
-                  className="w-8 h-8 rounded-xl bg-[#005CCC] hover:bg-[#008CFF] text-white flex items-center justify-center transition-colors shadow-md"
+                  className="w-9 h-9 sm:w-8 sm:h-8 rounded-xl bg-[#005CCC] hover:bg-[#008CFF] text-white flex items-center justify-center transition-colors shadow-md"
                   title={isPlayingReplay ? 'Pause Route Playback' : 'Play Route Playback'}
                 >
                   {isPlayingReplay ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
@@ -326,7 +326,7 @@ export const LiveMapSimulator: React.FC = () => {
                     setIsPlayingReplay(false);
                     setReplayStep(0);
                   }}
-                  className="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors"
+                  className="w-9 h-9 sm:w-8 sm:h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors"
                   title="Reset Playback"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
@@ -334,10 +334,10 @@ export const LiveMapSimulator: React.FC = () => {
               </div>
 
               {/* Progress Slider */}
-              <div className="flex-1 flex flex-col gap-1">
-                <div className="flex justify-between text-[10px] font-mono text-slate-600 font-semibold">
-                  <span>Replay: {SAMPLE_ROUTE_COORDINATES[replayStep]?.status || 'Trip Track'}</span>
-                  <span>{SAMPLE_ROUTE_COORDINATES[replayStep]?.time || '08:00 AM'}</span>
+              <div className="flex-1 min-w-0 flex flex-col gap-1">
+                <div className="flex justify-between gap-2 text-[10px] font-mono text-slate-600 font-semibold">
+                  <span className="truncate">Replay: {SAMPLE_ROUTE_COORDINATES[replayStep]?.status || 'Trip Track'}</span>
+                  <span className="shrink-0">{SAMPLE_ROUTE_COORDINATES[replayStep]?.time || '08:00 AM'}</span>
                 </div>
                 <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
                   <div 
@@ -347,7 +347,7 @@ export const LiveMapSimulator: React.FC = () => {
                 </div>
               </div>
 
-              <span className="text-[10px] font-mono font-bold text-[#005CCC] bg-blue-50 px-2 py-1 rounded-lg border border-blue-200">
+              <span className="hidden sm:inline-block text-[10px] font-mono font-bold text-[#005CCC] bg-blue-50 px-2 py-1 rounded-lg border border-blue-200 shrink-0">
                 1x Speed
               </span>
             </div>
@@ -459,12 +459,12 @@ export const LiveMapSimulator: React.FC = () => {
       </div>
 
       {/* Demo Notice Banner */}
-      <div className="bg-slate-50 px-4 py-2 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-600 font-medium">
+      <div className="bg-slate-50 px-3 sm:px-4 py-2.5 sm:py-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-600 font-medium">
         <span className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-[#005CCC]" />
+          <span className="w-2 h-2 rounded-full bg-[#005CCC] shrink-0" />
           Interactive Product Simulation. Real VolterTrack accounts stream 100% live hardware data.
         </span>
-        <a href="/demo" className="text-[#005CCC] hover:text-[#008CFF] font-bold hidden sm:inline">
+        <a href="/demo" className="text-[#005CCC] hover:text-[#008CFF] font-bold inline-block">
           Book Custom Live Demo →
         </a>
       </div>

@@ -3,14 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { ScrollToHash } from './components/common/ScrollToHash';
+import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
 
 // Pages
 import { HomePage } from './pages/HomePage';
 import { PlatformPage } from './pages/PlatformPage';
-import { WebDashboardPage } from './pages/platform/WebDashboardPage';
-import { MobileAppPage } from './pages/platform/MobileAppPage';
-import { FleetManagementPage } from './pages/platform/FleetManagementPage';
-import { AdministrationPage } from './pages/platform/AdministrationPage';
 
 import { FeaturesPage } from './pages/FeaturesPage';
 import { FeatureDetailPage } from './pages/FeatureDetailPage';
@@ -52,10 +49,10 @@ export const App: React.FC = () => {
 
             {/* Platform Sub-architecture */}
             <Route path="/platform" element={<PlatformPage />} />
-            <Route path="/platform/dashboard" element={<WebDashboardPage />} />
-            <Route path="/platform/mobile-app" element={<MobileAppPage />} />
-            <Route path="/platform/fleet-management" element={<FleetManagementPage />} />
-            <Route path="/platform/administration" element={<AdministrationPage />} />
+            <Route path="/platform/dashboard" element={<Navigate to="/platform#dashboard" replace />} />
+            <Route path="/platform/mobile-app" element={<Navigate to="/platform#mobile-app" replace />} />
+            <Route path="/platform/fleet-management" element={<Navigate to="/platform#fleet-management" replace />} />
+            <Route path="/platform/administration" element={<Navigate to="/platform#administration" replace />} />
 
             {/* Features Directory & Detail */}
             <Route path="/features" element={<FeaturesPage />} />
@@ -100,6 +97,7 @@ export const App: React.FC = () => {
         </main>
 
         <Footer />
+        <FloatingWhatsApp />
       </div>
     </Router>
   );

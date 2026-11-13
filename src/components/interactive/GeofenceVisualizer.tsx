@@ -43,24 +43,24 @@ export const GeofenceVisualizer: React.FC = () => {
   }, [isSimulating, activeZone, notifyEntry, notifyExit]);
 
   return (
-    <div className="w-full rounded-2xl md:rounded-3xl bg-white border border-slate-200/90 p-6 md:p-8 shadow-xl shadow-blue-950/5 overflow-hidden">
+    <div className="w-full rounded-2xl md:rounded-3xl bg-white border border-slate-200/90 p-4 sm:p-6 md:p-8 shadow-xl shadow-blue-950/5 overflow-hidden">
       
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 sm:pb-6 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2 text-[#005CCC] text-xs font-bold uppercase tracking-wider">
             <ShieldCheck className="w-4 h-4" />
-            <span>Interactive Geofence Boundary Simulator</span>
+            <span>Geofence Simulator</span>
           </div>
           <h3 className="text-xl md:text-2xl font-bold text-[#012462] mt-1 font-['Space_Grotesk']">
             Visual Perimeter & Boundary Alerts
           </h3>
           <p className="text-xs text-slate-500">
-            Draw custom polygons around depots, warehouses, and client sites with instant entry/exit SMS triggers.
+            Draw custom boundaries around depots and client sites with instant entry and exit alerts.
           </p>
         </div>
 
         {/* Zone Selector */}
-        <div className="flex rounded-xl bg-slate-100 p-1 border border-slate-200">
+        <div className="flex flex-wrap sm:flex-nowrap w-full md:w-auto self-start md:self-auto rounded-xl bg-slate-100 p-1 border border-slate-200 gap-1">
           {DEMO_GEOFENCES.map(zone => (
             <button
               key={zone.id}
@@ -68,7 +68,7 @@ export const GeofenceVisualizer: React.FC = () => {
                 setActiveZone(zone);
                 setVehiclePos({ x: 15, y: 35 });
               }}
-              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+              className={`flex-1 md:flex-none px-3 py-2 sm:py-1.5 text-xs font-bold rounded-lg transition-all whitespace-nowrap cursor-pointer ${
                 activeZone.id === zone.id ? 'bg-[#005CCC] text-white shadow-sm' : 'text-slate-600 hover:text-[#012462]'
               }`}
             >
@@ -78,15 +78,15 @@ export const GeofenceVisualizer: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 pt-6">
         
         {/* Left: Interactive Canvas Map */}
-        <div className="lg:col-span-8 bg-[#EEF4FB] rounded-2xl border border-slate-200 h-[340px] relative overflow-hidden flex items-center justify-center select-none">
+        <div className="lg:col-span-8 bg-[#EEF4FB] rounded-2xl border border-slate-200 h-[290px] sm:h-[340px] relative overflow-hidden flex items-center justify-center select-none">
           <div className="absolute inset-0 bg-grid-cyber opacity-70" />
 
           {/* Virtual Polygon Zone */}
           <div 
-            className="absolute top-[20%] left-[25%] w-[32%] h-[48%] rounded-xl border-2 border-dashed flex flex-col justify-between p-3"
+            className="absolute top-[20%] left-[18%] sm:left-[25%] w-[58%] sm:w-[34%] h-[46%] sm:h-[48%] rounded-xl border-2 border-dashed flex flex-col justify-between p-2.5 sm:p-3"
             style={{ 
               borderColor: activeZone.color, 
               backgroundColor: `${activeZone.color}25` 
@@ -144,7 +144,7 @@ export const GeofenceVisualizer: React.FC = () => {
               Notification Triggers
             </h4>
 
-            <label className="flex items-center justify-between cursor-pointer">
+            <label className="flex items-center justify-between cursor-pointer py-1.5 min-h-[36px]">
               <span className="text-slate-700 font-medium">Alert on Boundary Entry</span>
               <input
                 type="checkbox"
@@ -154,7 +154,7 @@ export const GeofenceVisualizer: React.FC = () => {
               />
             </label>
 
-            <label className="flex items-center justify-between cursor-pointer">
+            <label className="flex items-center justify-between cursor-pointer py-1.5 min-h-[36px]">
               <span className="text-slate-700 font-medium">Alert on Boundary Exit</span>
               <input
                 type="checkbox"
